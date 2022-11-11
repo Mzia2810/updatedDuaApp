@@ -15,13 +15,13 @@ export const userSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.email = action.payload.email;
-      state.password = action.payload.password;
+      // state.email = action.payload.email;
+      // state.password = action.payload.password;
       state.isLoggedIn = action.payload.isLoggedIn;
     },
     setSignOut: state => {
-      state.email = null;
-      state.password = null;
+      // state.email = null;
+      // state.password = null;
       state.isLoggedIn = null;
     },
   },

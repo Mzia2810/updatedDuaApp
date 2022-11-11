@@ -6,7 +6,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-const GradientHeader = ({props,DuaHeader}) => {
+const GradientHeader = ({props,DuaHeader,Verification}) => {
 
   return (
     <LinearGradient
@@ -19,7 +19,7 @@ const GradientHeader = ({props,DuaHeader}) => {
         // marginTop: hp("5%"),
       }}
     >
-      <DuaHeader props= {props}/> 
+     {DuaHeader ?  <DuaHeader props= {props} /> : <Verification props={props}/> }
     </LinearGradient>
   );
 };

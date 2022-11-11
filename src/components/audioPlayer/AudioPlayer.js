@@ -12,6 +12,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  ImageBackground,
 } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -294,27 +295,104 @@ export default class AudioPlayer extends React.Component {
   render() {
     return (
       <ScrollView>
-          {this.state.showValumeBox && (
-            <>
-              <View style={{ backgroundColor: "red",zIndex:5,}}>
-                <Text>Muhammad</Text>
-              </View>
-            </>
-          )}
         <View
           style={{
             backgroundColor: "#ffff",
             paddingVertical: hp("3%"),
             // backgroundColor:'red',
             // marginTop:hp('0.5%')
+            zIndex: 2,
           }}
         >
-        
           <View
             style={{
               flexDirection: "row",
             }}
           >
+            {this.state.showValumeBox && (
+              <>
+                <View
+                  style={{
+                    marginHorizontal: 10,
+                    backgroundColor: "#fff",
+                    position: "absolute",
+                    zIndex: 5,
+                    width: wp("95%"),
+                    // borderWidth: 1,
+                    // borderColor: "gray",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    paddingVertical: 10,
+                    marginTop: -30,
+                    alignContent: "center",
+                    shadowColor: "#000",
+                    shadowOffset: {
+                      width: 0,
+                      height: 2,
+                    },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+
+                    elevation: 5,
+                  }}
+                >
+                  <View style={{ flexDirection: "column" }}>
+                    <Text style={{ marginLeft: 20 }}>Loop</Text>
+                    <View
+                      style={{
+                        marginTop: 10,
+                        marginLeft: 5,
+                        flexDirection: "row",
+                      }}
+                    >
+                      <TouchableOpacity>
+                        <ImageBackground
+                          style={{
+                            width: wp("5.5%"),
+                            height: hp("3%"),
+                            borderRadius: "100% ",
+                          }}
+                          source={require("../../../assets/plusImage.png")}
+                        >
+                          <Text style={{ textAlign: "center" }}>+</Text>
+                        </ImageBackground>
+                      </TouchableOpacity>
+                      <Text style={{ paddingHorizontal: 10 }}>12</Text>
+                      <TouchableOpacity>
+                        <ImageBackground
+                          style={{ width: wp("5.5%"), height: hp("3%") }}
+                          source={require("../../../assets/plusImage.png")}
+                        >
+                          <Text style={{ textAlign: "center" }}>-</Text>
+                        </ImageBackground>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <View>
+                    <Text style={{ marginLeft: 40 }}>volume</Text>
+                    <Slider
+                      style={{
+                        width: wp("50%"),
+                        marginTop: 15,
+                        height: hp("2%"),
+                      }}
+                      minimumValue={0}
+                      maximumValue={1}
+                      minimumTrackTintColor="blue"
+                      maximumTrackTintColor="#000000"
+                      value={this._getSeekSliderPosition()}
+                      onValueChange={this._onSeekSliderValueChange}
+                      onSlidingComplete={this._onSeekSliderSlidingComplete}
+                      disabled={this.state.isLoading}
+                    />
+                  </View>
+                  <View style={{ flexDirection: "column" }}>
+                    <Text style={{ marginRight: 20 }}>Seek</Text>
+                    <Text style={{ marginRight: 20, marginTop: 10 }}>0.5x</Text>
+                  </View>
+                </View>
+              </>
+            )}
             <Slider
               style={{ width: wp("100%"), height: hp("4%") }}
               minimumValue={0}
@@ -345,7 +423,7 @@ export default class AudioPlayer extends React.Component {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity style={{ marginHorizontal: wp("3%") }}>
+              <TouchableOpacity  style={{ marginHorizontal: wp("3%") }}>
                 <View style={{ padding: 7 }}>
                   <FontAwesome5 name="book-open" size={25} />
                 </View>

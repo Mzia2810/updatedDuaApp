@@ -14,8 +14,8 @@ const AppRout = () => {
     // const isLoggedIn = useSelector(selectIsLoggedIn)
   return (
     <NavigationContainer>
-
-<MainStack />
+<Auth />
+{/* <MainStack /> */}
 
       {/* {isLoggedIn ? <MainStack /> : <Auth />} */}
     </NavigationContainer>

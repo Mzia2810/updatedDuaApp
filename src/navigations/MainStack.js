@@ -87,9 +87,7 @@ const MainStack = ({navigation}) => {
   const DuaHeader = ({props}) => {
     const {navigation} = props  ; 
     const canGoBack =() =>{
-      // if(navigation.canGoBack()){
-      //   navigation.goBack()
-      //   }
+     
 
       if (navigation.canGoBack()) {
         navigation.goBack();
@@ -252,7 +250,7 @@ const MainStack = ({navigation}) => {
         <Stack.Screen
           name="AllDua"
           options={(props) => {
-          name="AllDua"
+        
             console.log('this my props All Dua =============',props);
             return {
               headerStyle: {

@@ -38,7 +38,11 @@ const WhenWakeUp = ({ navigation }) => {
     setShowDrawer(!showDrawer);
   };
 
-  // const [countries, setmyCountries] = useState([{}]);
+  const [showValumeBox, setShowValumeBox] = useState(false);
+
+  const handleVolumeBox = () => {
+    setShowValumeBox(!showValumeBox)
+  }
   // const [modalVisible, setModalVisible] = useState(false);
   // const [isloading, setIsloading] = useState(true);
   // const [search, setSearch] = useState();
@@ -135,7 +139,7 @@ const WhenWakeUp = ({ navigation }) => {
           <>
             <ImageBackground
               source={require("../../../assets/little-kids/dreamingUp.png")}
-              style={{ height: hp("73%") }}
+              style={{ height: hp("73%"),}}
             >
               <View
                 style={{
@@ -153,6 +157,8 @@ const WhenWakeUp = ({ navigation }) => {
                   elevation: 2,
                   marginBottom: hp("1%"),
                   // backgroundColor: "#ffff",
+      
+
                 }}
               >
                 <View
@@ -537,7 +543,7 @@ const WhenWakeUp = ({ navigation }) => {
 
               {/* ................End Card...................................... */}
             </ImageBackground>
-            <AudioPlayer />
+            <AudioPlayer onPress={handleVolumeBox} />
           </>
         ) : (
           <>
