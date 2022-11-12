@@ -18,7 +18,7 @@ import {
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, EvilIcons, Octicons, SimpleLineIcons } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 // import styles from "./styles.js";
 
@@ -398,24 +398,39 @@ const TabViewExample = () => {
                 padding: 20,
                 borderRadius: 5,
                 borderWidth: 1,
-                borderColor:'#ABABAB',
+                borderColor: "#ABABAB",
               }}
             >
               <View style={{ flexDirection: "column" }}>
-              
-                  <Text style={{  fontSize: 14, fontWeight: "500",lineHeight:15 ,marginBottom:10,}}>
-                    Listen 5 Dua
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: "500",
+                    lineHeight: 15,
+                    marginBottom: 10,
+                  }}
+                >
+                  Listen 5 Dua
+                </Text>
+                <View style={{ flexDirection: "row" }}>
+                  <AntDesign
+                    name="staro"
+                    style={{ marginRight: 7 }}
+                    size={20}
+                    color="#ABABAB"
+                  />
+                  <Text
+                    style={{
+                      color: "#ABABAB",
+                      marginTop: 4,
+                      fontSize: 10,
+                      fontWeight: "400",
+                      lineHeight: 15,
+                    }}
+                  >
+                    10 Everyday listen 10 Duas
                   </Text>
-                  <View style={{ flexDirection: "row" }}>
-                    <AntDesign
-                      name="staro"
-                      style={{ marginRight: 7 }}
-                      size={20}
-                      color="#ABABAB"
-                    />
-                    <Text style={{color:'#ABABAB',marginTop:4, fontSize:10,fontWeight:'400',lineHeight:15}}>10  Everyday listen 10 Duas</Text>
-                  </View>
-               
+                </View>
               </View>
               <View>
                 <MaterialCommunityIcons
@@ -443,13 +458,20 @@ const TabViewExample = () => {
               padding: 20,
               borderRadius: 5,
               borderWidth: 1,
-              borderColor:'#ABABAB',
+              borderColor: "#ABABAB",
             }}
           >
             <View style={{ flexDirection: "column" }}>
               <View>
-                <Text style={{  fontSize: 14, fontWeight: "500",lineHeight:15 ,marginBottom:10, }}>
-                One Certificate
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: "500",
+                    lineHeight: 15,
+                    marginBottom: 10,
+                  }}
+                >
+                  One Certificate
                 </Text>
                 <View style={{ flexDirection: "row" }}>
                   <AntDesign
@@ -458,7 +480,17 @@ const TabViewExample = () => {
                     size={20}
                     color="#ABABAB"
                   />
-                  <Text style={{color:'#ABABAB',marginTop:4, fontSize:10,fontWeight:'400',lineHeight:15}}>100</Text>
+                  <Text
+                    style={{
+                      color: "#ABABAB",
+                      marginTop: 4,
+                      fontSize: 10,
+                      fontWeight: "400",
+                      lineHeight: 15,
+                    }}
+                  >
+                    100
+                  </Text>
                 </View>
               </View>
             </View>
@@ -478,44 +510,118 @@ const TabViewExample = () => {
           <View
             style={{ height: height, width: width, alignContent: "center" }}
           >
-            <View style={{}}>
+            <View style={{ backgroundColor: "#ffff" }}>
               <View style={styles.view}>
-                <View style={{ flexDirection: "row" }}>
-                  <View style={{ padding: wp("2%"), marginTop: 3 }}>
-                    <AntDesign name="user" size={20} color="grey" />
+                {/* ............................ */}
+                <View style={{ marginTop: hp("2%") }}>
+                  <View style={{ flexDirection: "row", }}>
+                    <View
+                      style={{
+                       
+                        marginRight: wp("3%"),
+                        padding: hp("0.5%"),
+                      }}
+                    >
+                      <Octicons
+                      
+                        name="person"
+                        size={15}
+                        color="#979797"
+                      />
+                    </View>
+                    <Text style={styles.text}>Name</Text>
                   </View>
-
-                  <Text style={styles.text3}>Nick Name</Text>
-                </View>
-
-                <View style={{ flexDirection: "row" }}>
-                  <TextInput style={styles.input} />
                 </View>
                 <View style={{ flexDirection: "row" }}>
-                  <View style={{ padding: wp("2%"), marginTop: 3.5 }}>
-                    <Fontisto name="email" size={20} color="grey" />
+                  <TextInput
+                    style={styles.input}
+                    placeholder='Muhammad'
+                    keyboardType="email"
+                  />
+                   <SimpleLineIcons
+                      style={{position:'absolute',marginLeft:hp('44%'),marginTop:5}}
+                        name="pencil"
+                        size={15}
+                        color="#979797"
+                      />
+                </View>
+                {/* ........................ */}
+                {/* ............................ */}
+                <View style={{ marginTop: hp("4%") }}>
+                  <View style={{ flexDirection: "row" }}>
+                    <View
+                      style={{
+                       
+                        marginRight: wp("3%"),
+                        padding: hp("0.5%"),
+                      }}
+                    >
+                      <Fontisto
+                      
+                        name="email"
+                        size={13}
+                        color="#979797"
+                      />
+                    </View>
+                    <Text style={styles.text}>Email</Text>
                   </View>
-                  <Text style={styles.text3}>Email</Text>
-                </View>
-
-                <View style={{ flexDirection: "row" }}>
-                  <TextInput style={styles.input} />
                 </View>
                 <View style={{ flexDirection: "row" }}>
-                  <View style={{ padding: wp("2%"), marginTop: 2 }}>
-                    <AntDesign name="lock" size={20} color="grey" />
+                  <TextInput
+                    style={styles.input}
+                    placeholder='muhammad@gmail.com'
+                    keyboardType="email"
+                  />
+                   <SimpleLineIcons
+                      style={{position:'absolute',marginLeft:hp('44%'),marginTop:5}}
+                        name="pencil"
+                        size={15}
+                        color="#979797"
+                      />
+                </View>
+                {/* ........................ */}
+                {/* ............................ */}
+                <View style={{ marginTop: hp("4%") }}>
+                  <View style={{ flexDirection: "row" }}>
+                    <View
+                      style={{
+                       
+                        marginRight: wp("2%"),
+                        padding: hp("0.5%"),
+                      }}
+                    >
+                      <AntDesign
+                      
+                        name="lock"
+                        size={15}
+                        color="#979797"
+                      />
+                    
+                    </View>
+                    <Text style={styles.text}>Password</Text>
                   </View>
-                  <Text style={styles.text3}>Password</Text>
                 </View>
-
                 <View style={{ flexDirection: "row" }}>
-                  <TextInput style={styles.input} />
+                  <TextInput
+                    style={styles.input}
+                    placeholder='Password'
+                    keyboardType="password"
+                  />
+                    <SimpleLineIcons
+                      style={{position:'absolute',marginLeft:hp('44%'),marginTop:5}}
+                        name="pencil"
+                        size={15}
+                        color="#979797"
+                      />
                 </View>
-                <View style={{ alignSelf: "center", paddingTop: hp("5%") }}>
+                {/* ........................ */}
+               
+                <View style={{ alignSelf: "center", marginTop: hp("10%") }}>
                   <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttontxt}>Update</Text>
                   </TouchableOpacity>
                 </View>
+              
               </View>
             </View>
           </View>
@@ -556,6 +662,27 @@ const TabViewExample = () => {
 export default TabViewExample;
 
 const styles = StyleSheet.create({
+  input: {
+    // marginTop:hp('2%'),
+    height: hp("5%"),
+    //margin: 12,
+    // borderBottomWidth:1,
+    width: wp("80%"),
+    //borderBottomColor:'red',
+    borderBottomColor: "#939393",
+    //marginLeft: wp('2%'),
+    marginLeft: hp("4%"),
+    // marginRight:hp('3%'),
+    fontSize: 14,
+    fontWeight: "400",
+    // color:'#222222',
+    paddingLeft: hp("5%"),
+  },
+  text: {
+    fontSize: 14,
+    fontWeight: "400",
+    color: "#979797",
+  },
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -713,7 +840,7 @@ const styles = StyleSheet.create({
   },
 
   dateBtn: {
-    width:45,
+    width: 45,
     borderRadius: 10,
     borderWidth: 0.5,
     borderColor: "#ABABAB",
@@ -766,13 +893,13 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 3,
   },
-  text: {
-    width: 86,
-    height: 21,
-    fontWeight: "500",
-    fontSize: 14,
-    color: "#0F0702",
-  },
+  // text: {
+  //   width: 86,
+  //   height: 21,
+  //   fontWeight: "500",
+  //   fontSize: 14,
+  //   color: "#0F0702",
+  // },
   caption: {
     width: 115,
     height: 15,
@@ -805,8 +932,8 @@ const styles = StyleSheet.create({
   input: {
     height: hp("5%"),
     //margin: 12,
-    borderBottomWidth: 1.25,
-    width: wp("75%"),
+    borderBottomWidth:0.5,
+    width: wp("85%"),
     borderColor: "#939393",
     padding: hp("1%"),
   },

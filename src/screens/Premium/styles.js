@@ -28,18 +28,20 @@ const styles = StyleSheet.create ({
     padding:wp('2%'),
   },
   button:{
+    // marginTop:100,
     backgroundColor:'#A044FF',
     borderRadius:10,
     padding:hp('3%'),
     justifyContent:'center',
     alignContent:'center',
     width:wp('85%'),
-    height:hp('7%'),
+    // height:hp('7%'),
 },
 buttontxt:{
-    color:'white',
+    color:'black',
     padding:3,
-    alignSelf:'center'
+    alignSelf:'center',
+    position:'absolute',
 },
 });
 export default styles;

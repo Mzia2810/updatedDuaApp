@@ -19,10 +19,9 @@ import Verification from "../screens/Verification";
 import Reset from "../screens/ResetPassword";
 import NewPassword from "../screens/NewPassword";
 import Email from "../screens/Email/index";
-import Payment from '../screens/Payment/index'
+import Payment from "../screens/Payment/index";
 import GradientHeader from "../components/GradientHeader";
 import { MaterialIcons } from "@expo/vector-icons";
-
 
 import {
   widthPercentageToDP as wp,
@@ -32,143 +31,216 @@ import {
 const Stack = createNativeStackNavigator();
 
 const Auth = () => {
-
-
-  const DuaHeader = ({props}) => {
-    const {navigation} = props  ; 
-    const canGoBack =() =>{
-     
-
+  const DuaHeader = ({ props }) => {
+    const { navigation } = props;
+    const canGoBack = () => {
       if (navigation.canGoBack()) {
         navigation.goBack();
       }
-    }
+    };
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <View style={{flexDirection:'row'}}>
-
-        <TouchableOpacity  onPress={canGoBack}>
-          <MaterialIcons name="arrow-back" size={25} color="#fff" />
-        </TouchableOpacity>
-  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Forget Password</Text>
-       </View>
-     
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={canGoBack}>
+            <MaterialIcons name="arrow-back" size={25} color="#fff" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              marginLeft: 35,
+              color: "#ffff",
+            }}
+          >
+            Forget Password
+          </Text>
+        </View>
       </View>
     );
   };
 
-
-
-
-  const VerificationHeader = ({props}) => {
-    const {navigation} = props  ; 
-    const canGoBack =() =>{
+  const VerificationHeader = ({ props }) => {
+    const { navigation } = props;
+    const canGoBack = () => {
       if (navigation.canGoBack()) {
         navigation.goBack();
       }
-    }
+    };
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <View style={{flexDirection:'row'}}>
-
-        <TouchableOpacity  onPress={canGoBack}>
-          <MaterialIcons name="arrow-back" size={25} color="#fff" />
-        </TouchableOpacity>
-  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Verification</Text>
-       </View>
-     
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={canGoBack}>
+            <MaterialIcons name="arrow-back" size={25} color="#fff" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              marginLeft: 35,
+              color: "#ffff",
+            }}
+          >
+            Verification
+          </Text>
+        </View>
       </View>
     );
   };
 
-
-  const  NewPasswordHeader = ({props}) => {
-    const {navigation} = props  ; 
-    const canGoBack =() =>{
+  const NewPasswordHeader = ({ props }) => {
+    const { navigation } = props;
+    const canGoBack = () => {
       if (navigation.canGoBack()) {
         navigation.goBack();
       }
-    }
+    };
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <View style={{flexDirection:'row'}}>
-
-        <TouchableOpacity  onPress={canGoBack}>
-          <MaterialIcons name="arrow-back" size={25} color="#fff" />
-        </TouchableOpacity>
-  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >New Password</Text>
-       </View>
-     
-      </View>
-    );
-  };
-  
-  const  EmailHeader = ({props}) => {
-    const {navigation} = props  ; 
-    const canGoBack =() =>{
-      if (navigation.canGoBack()) {
-        navigation.goBack();
-      }
-    }
-    return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <View style={{flexDirection:'row'}}>
-
-        <TouchableOpacity  onPress={canGoBack}>
-          <MaterialIcons name="arrow-back" size={25} color="#fff" />
-        </TouchableOpacity>
-  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Email</Text>
-       </View>
-     
-      </View>
-    );
-  };
-  const  PaymentHeader = ({props}) => {
-    const {navigation} = props  ; 
-    const canGoBack =() =>{
-      if (navigation.canGoBack()) {
-        navigation.goBack();
-      }
-    }
-    return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <View style={{flexDirection:'row'}}>
-
-        <TouchableOpacity  onPress={canGoBack}>
-          <MaterialIcons name="arrow-back" size={25} color="#fff" />
-        </TouchableOpacity>
-  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Payment</Text>
-       </View>
-     
-      </View>
-    );
-  };
-  const  ResetHeader = ({props}) => {
-    const {navigation} = props  ; 
-    const canGoBack =() =>{
-      if (navigation.canGoBack()) {
-        navigation.goBack();
-      }
-    }
-    return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <View style={{flexDirection:'row'}}>
-
-        <TouchableOpacity  onPress={canGoBack}>
-          <MaterialIcons name="arrow-back" size={25} color="#fff" />
-        </TouchableOpacity>
-  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Reset</Text>
-       </View>
-     
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={canGoBack}>
+            <MaterialIcons name="arrow-back" size={25} color="#fff" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              marginLeft: 35,
+              color: "#ffff",
+            }}
+          >
+            New Password
+          </Text>
+        </View>
       </View>
     );
   };
 
-
-
+  const EmailHeader = ({ props }) => {
+    const { navigation } = props;
+    const canGoBack = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    };
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={canGoBack}>
+            <MaterialIcons name="arrow-back" size={25} color="#fff" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              marginLeft: 35,
+              color: "#ffff",
+            }}
+          >
+            Email
+          </Text>
+        </View>
+      </View>
+    );
+  };
+  const PaymentHeader = ({ props }) => {
+    const { navigation } = props;
+    const canGoBack = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    };
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={canGoBack}>
+            <MaterialIcons name="arrow-back" size={25} color="#fff" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              marginLeft: 35,
+              color: "#ffff",
+            }}
+          >
+            Payment
+          </Text>
+        </View>
+      </View>
+    );
+  };
+  const ResetHeader = ({ props }) => {
+    const { navigation } = props;
+    const canGoBack = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    };
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={canGoBack}>
+            <MaterialIcons name="arrow-back" size={25} color="#fff" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              marginLeft: 35,
+              color: "#ffff",
+            }}
+          >
+            Reset
+          </Text>
+        </View>
+      </View>
+    );
+  };
 
   return (
-    <Stack.Navigator  initialRouteName="Splash">
+    <Stack.Navigator initialRouteName="Splash">
       {/*  SplashScreen */}
       <Stack.Screen
         name="Splash"
@@ -196,7 +268,7 @@ const Auth = () => {
       <Stack.Screen
         name="ForgetPassword"
         options={(props) => {
-          console.log('this my props when wake up =============',props);
+          console.log("this my props when wake up =============", props);
           return {
             headerStyle: {
               backgroundColor:
@@ -206,23 +278,25 @@ const Auth = () => {
 
             // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
             headerTitle: "When Waking up ",
-            header: () => <GradientHeader  DuaHeader={DuaHeader}  props={props} />,
-          headerStyle: {
-            backgroundColor: "transparent",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-          },
-          headerShown: true,
-          }
+            header: () => (
+              <GradientHeader DuaHeader={DuaHeader} props={props} />
+            ),
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+          };
         }}
         component={ForgetPassword}
       />
       <Stack.Screen
         name="Verification"
         options={(props) => {
-          console.log('this my props when wake up =============',props);
+          console.log("this my props when wake up =============", props);
           return {
             headerStyle: {
               backgroundColor:
@@ -232,23 +306,25 @@ const Auth = () => {
 
             // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
             headerTitle: "Verification ",
-            header: () => <GradientHeader  DuaHeader={VerificationHeader}  props={props} />,
-          headerStyle: {
-            backgroundColor: "transparent",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-          },
-          headerShown: true,
-          }
+            header: () => (
+              <GradientHeader DuaHeader={VerificationHeader} props={props} />
+            ),
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+          };
         }}
         component={Verification}
       />
       <Stack.Screen
         name="Reset"
         options={(props) => {
-          console.log('this my props when wake up =============',props);
+          console.log("this my props when wake up =============", props);
           return {
             headerStyle: {
               backgroundColor:
@@ -258,23 +334,25 @@ const Auth = () => {
 
             // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
             headerTitle: "When Waking up ",
-            header: () => <GradientHeader  DuaHeader={ResetHeader}  props={props} />,
-          headerStyle: {
-            backgroundColor: "transparent",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-          },
-          headerShown: true,
-          }
+            header: () => (
+              <GradientHeader DuaHeader={ResetHeader} props={props} />
+            ),
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+          };
         }}
         component={Reset}
       />
       <Stack.Screen
         name="NewPassword"
         options={(props) => {
-          console.log('this my props when wake up =============',props);
+          console.log("this my props when wake up =============", props);
           return {
             headerStyle: {
               backgroundColor:
@@ -284,23 +362,25 @@ const Auth = () => {
 
             // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
             headerTitle: "When Waking up ",
-            header: () => <GradientHeader  DuaHeader={NewPasswordHeader}  props={props} />,
-          headerStyle: {
-            backgroundColor: "transparent",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-          },
-          headerShown: true,
-          }
+            header: () => (
+              <GradientHeader DuaHeader={NewPasswordHeader} props={props} />
+            ),
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+          };
         }}
         component={NewPassword}
       />
       <Stack.Screen
         name="Email"
         options={(props) => {
-          console.log('this my props when wake up =============',props);
+          console.log("this my props when wake up =============", props);
           return {
             headerStyle: {
               backgroundColor:
@@ -310,23 +390,25 @@ const Auth = () => {
 
             // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
             headerTitle: "When Waking up ",
-            header: () => <GradientHeader  DuaHeader={EmailHeader}  props={props} />,
-          headerStyle: {
-            backgroundColor: "transparent",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-          },
-          headerShown: true,
-          }
+            header: () => (
+              <GradientHeader DuaHeader={EmailHeader} props={props} />
+            ),
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+          };
         }}
         component={Email}
       />
       <Stack.Screen
         name="Payment"
         options={(props) => {
-          console.log('this my props when wake up =============',props);
+          console.log("this my props when wake up =============", props);
           return {
             headerStyle: {
               backgroundColor:
@@ -336,16 +418,18 @@ const Auth = () => {
 
             // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
             headerTitle: "When Waking up ",
-            header: () => <GradientHeader  DuaHeader={PaymentHeader}  props={props} />,
-          headerStyle: {
-            backgroundColor: "transparent",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-          },
-          headerShown: true,
-          }
+            header: () => (
+              <GradientHeader DuaHeader={PaymentHeader} props={props} />
+            ),
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+          };
         }}
         component={Payment}
       />

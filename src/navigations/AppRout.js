@@ -15,7 +15,7 @@ const AppRout = () => {
   return (
     <NavigationContainer>
 
-
+{/* <Auth /> */}
 
       {/* {isLoggedIn ? */}
        <MainStack /> 

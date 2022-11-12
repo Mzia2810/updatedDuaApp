@@ -671,7 +671,7 @@ const Settings = ({ navigation }) => {
 
           {/* ................................................................................................................... */}
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Suggestions')}>
             <View style={{ flexDirection: "row", paddingTop: hp("3%") }}>
               <View style={{ paddingRight: wp("5%"), paddingLeft: wp("2%") }}>
                 <MaterialCommunityIcons

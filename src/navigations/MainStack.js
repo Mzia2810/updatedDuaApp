@@ -21,6 +21,7 @@ import Premium from "../screens/Premium/index";
 import Flags from "../screens/Flags/index";
 import { FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import Pop from "../screens/bottomTab/setting/popup";
+import Suggestions from "../screens/suggestion/index";
 import LanguagePicker, { ILanguagePicker } from "react-native-language-select";
 import {
   widthPercentageToDP as wp,
@@ -316,6 +317,29 @@ const MainStack = ({navigation}) => {
     );
   };
   
+  const SuggestionHeader = ({props}) => {
+    const {navigation} = props  ; 
+    const canGoBack =() =>{
+     
+
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    }
+    return (
+      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
+       <View style={{flexDirection:'row'}}>
+
+        <TouchableOpacity  onPress={canGoBack}>
+          <MaterialIcons name="arrow-back" size={25} color="#fff" />
+        </TouchableOpacity>
+  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Suggestions</Text>
+       </View>
+      
+      </View>
+    );
+  };
+  
 
 
 
@@ -486,6 +510,32 @@ const MainStack = ({navigation}) => {
                 {/* <FontAwesome5 style={{ color: "#fff", fontSize: 20,  marginLeft: 7, }} name="calendar-alt" size={20} color="#fff" /> */}
               </>
             ),
+          }}
+        />
+        <Stack.Screen
+          name="Suggestions"
+          component={Suggestions}
+          options={(props) => {
+            console.log('this my props when wake up =============',props);
+            return {
+              headerStyle: {
+                backgroundColor:
+                  "linear-gradient(to bottom, #4e54c8 0%, #a044ff 100%)",
+              },
+              headerTintColor: "#fff",
+  
+              // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
+              headerTitle: "Flags",
+              header: () => <GradientHeader  DuaHeader={SuggestionHeader}  props={props} />,
+            headerStyle: {
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            },
+            headerShown: true,
+            }
           }}
         />
       </Stack.Navigator>

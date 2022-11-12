@@ -7,11 +7,12 @@ import styles from './styles.js';
 
 const Premium =({navigation})=>{
     return(
-        <View style={styles.container}>
-            {/* <Text>hello Premium</Text> */}
+       
+         
             <ImageBackground 
             source={require('../../../assets/premium.png')} 
-            style={{width:width, height:hp('100%')}}>
+            style={{  flex: 1,
+                resizeMode: 'cover',  resizeMode: 'stretch',}}>
                 <View style={{backgroundColor: 'rgba(0,0,0,0.5)',height:height,width:width, }}>
                 <View style={{ padding:20, justifyContent:'center'}}>
                <TouchableOpacity onPress={()=>navigation.goBack()}>
@@ -51,7 +52,7 @@ const Premium =({navigation})=>{
 
             </ImageBackground>
 
-        </View>
+      
     );
 };
 export default Premium;
