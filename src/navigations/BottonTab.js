@@ -307,7 +307,7 @@ const BottomTabNavigator = ({ navigation }) => {
   const SettingHead = () => {
     return (
       <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-      <Text style={{fontSize:18, fontWeight:'500', color:'#fff'}}>Setting</Text>
+      <Text style={{fontSize:18, fontWeight:'500', color:'#fff'}}>Settings</Text>
 
        <View
          style={{

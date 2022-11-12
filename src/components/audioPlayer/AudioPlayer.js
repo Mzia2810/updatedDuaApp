@@ -298,10 +298,12 @@ export default class AudioPlayer extends React.Component {
         <View
           style={{
             backgroundColor: "#ffff",
-            paddingVertical: hp("3%"),
+            paddingVertical: hp("4%"),
             // backgroundColor:'red',
             // marginTop:hp('0.5%')
-            zIndex: 2,
+            // position:'relative',
+            // zIndex: 1,
+            // marginTop:-400,
           }}
         >
           <View
@@ -394,7 +396,7 @@ export default class AudioPlayer extends React.Component {
               </>
             )}
             <Slider
-              style={{ width: wp("100%"), height: hp("4%") }}
+              style={{ width: wp("100%"), height: hp("4%"),marginBottom:15 }}
               minimumValue={0}
               maximumValue={1}
               minimumTrackTintColor="blue"

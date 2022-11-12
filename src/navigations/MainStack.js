@@ -22,7 +22,6 @@ import Flags from "../screens/Flags/index";
 import { FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import Pop from "../screens/bottomTab/setting/popup";
 import LanguagePicker, { ILanguagePicker } from "react-native-language-select";
-import * as RootNavigation  from '../../RootNavigation';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -160,75 +159,167 @@ const MainStack = ({navigation}) => {
       </View>
     );
   };
-  
-  // const DuaHeader = () => {
-  //   return (
-  //     <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-  //      <View style={{flexDirection:'row'}}>
 
-  //       <TouchableOpacity  onPress={() => RootNavigation.navigate("Home")}>
-  //         <MaterialIcons name="arrow-back" size={25} color="#fff" />
-  //       </TouchableOpacity>
-  // <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >All Dua's</Text>
-  //      </View>
-  //       <View
-  //         style={{
-  //           // backgroundColor: "green",
-  //         marginLeft:hp('17%'),
-  //           flexDirection: "row",
-  //         }}
-  //       >
-  //         <Image
-  //           style={{
-  //             backgroundColor: "#fff",
-  //             borderRadius: 50,
-  //             marginTop: 2,
-  //             marginRight: 7,
-  //           }}
-  //           source={require("../../assets/usa.png")}
-  //         />
-  //         <Text style={{ color: "#fff", fontSize: 15 ,marginLeft:2}}>{language}</Text>
-  //         <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
-  //           <Ionicons name="chevron-down" size={20} color="#fff" />
-  //         </TouchableOpacity>
+
+
+  const PremiumHeader = ({props}) => {
+    const {navigation} = props  ; 
+    const canGoBack =() =>{
+     
+
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    }
+    return (
+      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
+       <View style={{flexDirection:'row'}}>
+
+        <TouchableOpacity  onPress={canGoBack}>
+          <MaterialIcons name="arrow-back" size={25} color="#fff" />
+        </TouchableOpacity>
+  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Premium</Text>
+       </View>
+        <View
+          style={{
+            // backgroundColor: "green",
+          marginLeft:hp('17%'),
+            flexDirection: "row",
+          }}
+        >
+          <Image
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 50,
+              marginTop: 2,
+              marginRight: 7,
+            }}
+            source={require("../../assets/usa.png")}
+          />
+          <Text style={{ color: "#fff", fontSize: 15 ,marginLeft:2}}>{language}</Text>
+          <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
+            <Ionicons name="chevron-down" size={20} color="#fff" />
+          </TouchableOpacity>
   
-  //         <Modal
-  //           animationType="slide"
-  //           transparent={true}
-  //           visible={modalVisible}
-  //           onRequestClose={() => {
-  //             Alert.alert("Modal has been closed.");
-  //             setModalVisible(!modalVisible);
-  //           }}
-  //         >
-  //           <View
-  //             style={[
-  //               styles.centeredView,
-  //               { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
-  //             ]}
-  //           >
-  //             <View style={styles.modalView}>
-  //               <LanguagePicker
-  //                 initialIndex={1}
-  //                 data={data}
-  //                 onSelect={(selectedItem: ILanguagePicker) => {
-  //                   setLanguage(selectedItem.title);
-  //                   setImage(selectedItem.Image);
-  //                 }}
-  //               />
-  //               <Pressable
-  //                 style={[styles.button, styles.buttonClose]}
-  //                 onPress={() => setModalVisible(!modalVisible)}
-  //               >
-  //                 <Text style={styles.textStyle}>Cancel</Text>
-  //               </Pressable>
-  //             </View>
-  //           </View>
-  //         </Modal>
-  //       </View>
-  //     </View>
-  //   );
-  // };
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View
+              style={[
+                styles.centeredView,
+                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+              ]}
+            >
+              <View style={styles.modalView}>
+                <LanguagePicker
+                  initialIndex={1}
+                  data={data}
+                  onSelect={(selectedItem: ILanguagePicker) => {
+                    setLanguage(selectedItem.title);
+                    setImage(selectedItem.Image);
+                  }}
+                />
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={styles.textStyle}>Cancel</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+        </View>
+      </View>
+    );
+  };
+  
+  const FlagHeader = ({props}) => {
+    const {navigation} = props  ; 
+    const canGoBack =() =>{
+     
+
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    }
+    return (
+      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
+       <View style={{flexDirection:'row'}}>
+
+        <TouchableOpacity  onPress={canGoBack}>
+          <MaterialIcons name="arrow-back" size={25} color="#fff" />
+        </TouchableOpacity>
+  <Text style={{fontSize:18,fontWeight:'500',marginLeft:35,color:'#ffff'}} >Flags</Text>
+       </View>
+        <View
+          style={{
+            // backgroundColor: "green",
+          marginLeft:hp('17%'),
+            flexDirection: "row",
+          }}
+        >
+          <Image
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 50,
+              marginTop: 2,
+              marginRight: 7,
+            }}
+            source={require("../../assets/usa.png")}
+          />
+          <Text style={{ color: "#fff", fontSize: 15 ,marginLeft:2}}>{language}</Text>
+          <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
+            <Ionicons name="chevron-down" size={20} color="#fff" />
+          </TouchableOpacity>
+  
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View
+              style={[
+                styles.centeredView,
+                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+              ]}
+            >
+              <View style={styles.modalView}>
+                <LanguagePicker
+                  initialIndex={1}
+                  data={data}
+                  onSelect={(selectedItem: ILanguagePicker) => {
+                    setLanguage(selectedItem.title);
+                    setImage(selectedItem.Image);
+                  }}
+                />
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={styles.textStyle}>Cancel</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+        </View>
+      </View>
+    );
+  };
+  
+
+
+
+ 
   
 
 
@@ -287,7 +378,7 @@ const MainStack = ({navigation}) => {
               headerTintColor: "#fff",
   
               // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
-              headerTitle: "When Waking up ",
+              headerTitle: "Premium ",
               header: () => <GradientHeader  DuaHeader={DuaHeader}  props={props} />,
             headerStyle: {
               backgroundColor: "transparent",
@@ -303,63 +394,53 @@ const MainStack = ({navigation}) => {
         />
         <Stack.Screen
           name="Premium"
-          options={{
+          options={(props) => {
+            console.log('this my props when wake up =============',props);
+            return {
+              headerStyle: {
+                backgroundColor:
+                  "linear-gradient(to bottom, #4e54c8 0%, #a044ff 100%)",
+              },
+              headerTintColor: "#fff",
+  
+              // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
+              headerTitle: "Premium",
+              header: () => <GradientHeader  DuaHeader={PremiumHeader}  props={props} />,
             headerStyle: {
-              backgroundColor:
-                "linear-gradient(180deg, #4E54C8 0%, #A044FF 100%)",
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
             },
-            headerTintColor: "#fff",
-
-            // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
-            headerTitle: "Premium ",
-            headerRight: () => (
-              <>
-                <Image
-                  style={{
-                    backgroundColor: "white",
-                    borderRadius: 50,
-                    marginBottom: 5,
-                  }}
-                  source={require("../../assets/usa.png")}
-                />
-                <Text style={{ color: "#fff", fontSize: 15, marginBottom: 5 }}>
-                  English
-                </Text>
-                <Ionicons name="chevron-down" size={25} color="#fff" />
-              </>
-            ),
+            headerShown:false,
+            }
           }}
           component={Premium}
         />
         <Stack.Screen
           name="Flags"
-          options={{
+          options={(props) => {
+            console.log('this my props when wake up =============',props);
+            return {
+              headerStyle: {
+                backgroundColor:
+                  "linear-gradient(to bottom, #4e54c8 0%, #a044ff 100%)",
+              },
+              headerTintColor: "#fff",
+  
+              // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
+              headerTitle: "Flags",
+              header: () => <GradientHeader  DuaHeader={FlagHeader}  props={props} />,
             headerStyle: {
-              backgroundColor:
-                "linear-gradient(180deg, #4E54C8 0%, #A044FF 100%)",
+              backgroundColor: "transparent",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
             },
-            headerTintColor: "#fff",
-
-            // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
-            headerTitle: "Flags ",
-            headerRight: () => (
-              <>
-                <Image
-                  style={{
-                    backgroundColor: "white",
-                    borderRadius: 50,
-                    marginBottom: 5,
-                  }}
-                  source={require("../../assets/usa.png")}
-                />
-                <Text style={{ color: "#fff", fontSize: 15, marginBottom: 5 }}>
-                  {language}
-                </Text>
-                <TouchableOpacity onPress={() => setModalVisible(true)}>
-                  <Ionicons name="chevron-down" size={25} color="#fff" />
-                </TouchableOpacity>
-              </>
-            ),
+            headerShown: true,
+            }
           }}
           component={Flags}
         />

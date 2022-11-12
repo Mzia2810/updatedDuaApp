@@ -5,8 +5,8 @@ const {width,height}=Dimensions.get('window');
 const styles = StyleSheet.create ({
  container:{
     flex:1,
-    height:height,
-    width:width,
+    height:hp('100%'),
+    width:wp('100%'),
 
  },
  text:{

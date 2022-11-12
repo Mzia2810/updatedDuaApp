@@ -61,8 +61,8 @@ const WhenWakeUp = ({ navigation }) => {
   return (
     <View
       style={{
-        backgroundColor:'#FAF9FC'
-
+        backgroundColor:'#FAF9FC',
+        height:hp('100%'),
       }}
     >
       {showDrawer && (
@@ -139,7 +139,7 @@ const WhenWakeUp = ({ navigation }) => {
           <>
             <ImageBackground
               source={require("../../../assets/little-kids/dreamingUp.png")}
-              style={{ height: hp("73%"),}}
+              style={{ height: hp("75%"),}}
             >
               <View
                 style={{

@@ -1,4 +1,5 @@
-import * as React from 'react';
+
+import  React, {useRef, useState} from 'react';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { FlatList, Text, View, StyleSheet, TouchableOpacity, Dimensions, Button, Image, TextInput, ScrollView, ImageBackground} from 'react-native';
 import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -7,8 +8,35 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import ForgetPassword from '../ForgetPassword/index';
 const {width,height}=Dimensions.get('window');
+
+import {useDispatch} from 'react-redux';
+import {setSignIn} from '../../redux/userSlice';
+
 //import styles from './styles';
 const Login =({navigation})=>{
+
+    const [isLoggedIn, selectIsLoggedIn] = useState(false);
+
+    const dispatch = useDispatch();
+
+
+    
+
+
+    // const dispatch = useDispatch();
+   
+    const handleLogin =  () => {
+      
+      selectIsLoggedIn(true)
+  
+  
+    
+      
+        dispatch(setSignIn(isLoggedIn));
+      };
+    
+  
+
     return(
         
         <View style={styles.container}>
@@ -72,6 +100,7 @@ const Login =({navigation})=>{
                     <View style={{justifyContent:'center', alignSelf:'center',marginTop:hp('1%'),}}>
                     <View style={{alignSelf:'center'}}>
                         <TouchableOpacity
+                        onPress={handleLogin}
                         style={styles.button}>
                             <Text style={styles.buttontxt}>Login</Text>
                         </TouchableOpacity>

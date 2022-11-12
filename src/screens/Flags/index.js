@@ -20,7 +20,7 @@ const MyComponent = () => {
   // const [india, setIndia] = React.useState("Inida");
 
   return (
-    <View style={{margin:3}}>
+    <View style={{width:'100%',height:'100%'}}>
 
 
       <View

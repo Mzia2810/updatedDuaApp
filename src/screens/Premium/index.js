@@ -11,7 +11,7 @@ const Premium =({navigation})=>{
             {/* <Text>hello Premium</Text> */}
             <ImageBackground 
             source={require('../../../assets/premium.png')} 
-            style={{width:width, height:height}}>
+            style={{width:width, height:hp('100%')}}>
                 <View style={{backgroundColor: 'rgba(0,0,0,0.5)',height:height,width:width, }}>
                 <View style={{ padding:20, justifyContent:'center'}}>
                <TouchableOpacity onPress={()=>navigation.goBack()}>

@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  isLoggedIn: null,
+  isLoggedIn: true,
   email: null,
   password: null,
 };
@@ -11,6 +11,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setSignIn: (state, action) => {
+      
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
@@ -18,6 +19,7 @@ export const userSlice = createSlice({
       // state.email = action.payload.email;
       // state.password = action.payload.password;
       state.isLoggedIn = action.payload.isLoggedIn;
+      console.log('action p ayload ===',action.payload);
     },
     setSignOut: state => {
       // state.email = null;
