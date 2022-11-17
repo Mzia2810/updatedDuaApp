@@ -75,17 +75,18 @@ const Favourite = () => {
   
   const [isChecked, setChecked] = useState(true);
   const [secChecked, setSecChecked] = useState(true);
-  const [iconChange,setIconChange] = useState(false)
+  const [iconChangeFirst,setIconChangeFirst] = useState(false)
+  const [iconChangeSec,setIconChangeSec] = useState(false)
 
   const handleAccordionOne = () => {
     setViewWidthOne(!viewWidthOne);
     setVisibleOne(!visibleOne);
-    setIconChange(!iconChange)
+    setIconChangeFirst(!iconChangeFirst)
   };
   const handleAccordionTwo = () => {
     setViewWidthTwo(!viewWidthTwo);
     setVisibleTwo(!visibleTwo);
-    setIconChange(!iconChange)
+    setIconChangeSec(!iconChangeSec)
   };
   // const [activeSections, setActiveSections] = useState([]);
 
@@ -132,7 +133,7 @@ const Favourite = () => {
 
               <TouchableOpacity style={{marginTop:2}} onPress={handleAccordionOne}>
                 <AntDesign
-                  name={iconChange == false ? 'down' : 'up'}
+                  name={iconChangeFirst == false ? 'up' : 'down'}
                   size={15}
                   color="#0F0702"
                   style={styles.share}
@@ -151,7 +152,8 @@ const Favourite = () => {
               width: hp("49.5%"),
               marginTop: hp("10%"),
               backgroundColor: "#ffff",
-              position: "absolute",backgroundColor:'yellow',
+              position: "absolute",
+              // backgroundColor:'yellow',
               // backgroundColor:'yellow'
             }}
           >
@@ -344,7 +346,7 @@ const Favourite = () => {
 
               <TouchableOpacity style={{marginTop:2}} onPress={handleAccordionTwo}>
                 <AntDesign
-                  name={iconChange == false ? 'down' : 'up'}
+                  name={iconChangeSec == false ? 'up' : 'down'}
                   size={15}
                   color="#0F0702"
                   style={styles.share}

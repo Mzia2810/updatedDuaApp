@@ -83,6 +83,8 @@ export default class AudioPlayer extends React.Component {
       rate: 1.0,
       portrait: null,
       showValumeBox: false,
+      duration: "00:00:00",
+      timeElapsed: "00:00:00",
     };
   }
 
@@ -287,10 +289,81 @@ export default class AudioPlayer extends React.Component {
     ) {
       return `${this._getMMSSFromMillis(
         this.state.playbackInstancePosition
-      )} / ${this._getMMSSFromMillis(this.state.playbackInstanceDuration)}`;
+      )}                                                                   ${this._getMMSSFromMillis(
+        this.state.playbackInstanceDuration
+      )}`;
     }
     return "";
   }
+
+  _getSeekSliderPosition() {
+    if (
+      this.playbackInstance != null &&
+      this.state.playbackInstancePosition != null &&
+      this.state.playbackInstanceDuration != null
+    ) {
+      return (
+        this.state.playbackInstancePosition /
+        this.state.playbackInstanceDuration
+      );
+    }
+    return 0;
+  }
+
+  _getMMSSFromMillis(millis) {
+    const totalSeconds = millis / 1000;
+    const seconds = Math.floor(totalSeconds % 60);
+    const minutes = Math.floor(totalSeconds / 60);
+
+    const padWithZero = (number) => {
+      const string = number.toString();
+      if (number < 10) {
+        return "0" + string;
+      }
+      return string;
+    };
+    return padWithZero(minutes) + ":" + padWithZero(seconds);
+  }
+
+  // _getTimestamp() {
+  //   if (
+  //     this.playbackInstance != null &&
+  //     this.state.playbackInstancePosition != null &&
+  //     this.state.playbackInstanceDuration != null
+  //   ) {
+  //     return `${this._getMMSSFromMillis(
+  //       this.state.playbackInstancePosition
+  //     )}                                                                 
+  //       ${this._getMMSSFromMillis(this.state.playbackInstanceDuration)}`;
+  //   }
+  //   //   return "";
+  // }
+
+
+
+  _getTimeStart() {
+    if (
+      this.playbackInstance != null &&
+      this.state.playbackInstancePosition != null &&
+      this.state.playbackInstanceDuration != null
+    ) {
+      return `${this._getMMSSFromMillis(this.state.playbackInstancePosition)}`;
+    }
+    return "";
+  }
+  _getTimeEnd() {
+    if (
+      this.playbackInstance != null &&
+      this.state.playbackInstancePosition != null &&
+      this.state.playbackInstanceDuration != null
+    ) {
+      return `${this._getMMSSFromMillis(this.state.playbackInstanceDuration)}`;
+    }
+    return "";
+  }
+
+
+
 
   render() {
     return (
@@ -298,12 +371,12 @@ export default class AudioPlayer extends React.Component {
         <View
           style={{
             backgroundColor: "#ffff",
-            paddingVertical: hp("4%"),
-            // backgroundColor:'red',
+            paddingVertical: hp("2%"),
+            // backgroundColor: "red",
             // marginTop:hp('0.5%')
             // position:'relative',
             // zIndex: 1,
-            // marginTop:-400,
+            // marginTop:-50,
           }}
         >
           <View
@@ -324,8 +397,8 @@ export default class AudioPlayer extends React.Component {
                     // borderColor: "gray",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    paddingVertical: 10,
-                    marginTop: -30,
+                    paddingVertical: 15,
+                    marginTop: -12,
                     alignContent: "center",
                     shadowColor: "#000",
                     shadowOffset: {
@@ -396,7 +469,7 @@ export default class AudioPlayer extends React.Component {
               </>
             )}
             <Slider
-              style={{ width: wp("100%"), height: hp("4%"),marginBottom:15 }}
+              style={{ width: wp("100%"), height: hp("4%"), marginBottom: 2 }}
               minimumValue={0}
               maximumValue={1}
               minimumTrackTintColor="blue"
@@ -407,8 +480,103 @@ export default class AudioPlayer extends React.Component {
               disabled={this.state.isLoading}
             />
           </View>
-          {/* .............Arabic............ */}
 
+
+
+          <View style={styles.detailsContainer}>
+            <View
+              style={{
+                // backgroundColor: "red",
+                // width: "90%",
+             alignSelf:'flex-start',
+                // overflow: "hidden",
+                height: "60%",
+                // top: 3,
+                flexDirection: "row",
+              }}
+            >
+              <Text style={[styles.text, { marginRight: 60 }]}>
+                {this._getTimeStart()}
+              </Text>
+              <Text style={styles.text}>{this.state.playbackInstanceName}</Text>
+              <Text style={[styles.text, { marginLeft: 70 }]}>
+                {this._getTimeEnd()}
+              </Text>
+            </View>
+          
+ </View>
+
+
+
+
+
+
+
+          {/* <View style={styles.detailsContainer}>
+            <View
+              style={{
+                // backgroundColor: "red",
+                width: "70%",
+                alignSelf: "center",
+                // overflow: "hidden",
+                height: "60%",
+                top: 3,
+              }}
+            >
+              <Text style={styles.text}>{this.state.playbackInstanceName}</Text>
+            </View>
+            <View
+              style={{
+                // backgroundColor: "green",
+                width: "100%",
+                alignSelf: "center",
+                overflow: "hidden",
+                // marginBottom: -50,
+                bottom: 20,
+                justifyContent: "flex-start",
+              }}
+            >
+              <Text style={styles.text}>
+                {this.state.isBuffering
+                  ? BUFFERING_STRING
+                  : this._getTimestamp()}
+              </Text>
+            </View>
+            </View> */}
+
+          {/* .............Arabic............ */}
+          {/* <View style={styles.detailsContainer}>
+            <View
+              style={{
+                backgroundColor: "red",
+                width: "70%",
+                alignSelf: "center",
+                // overflow: "hidden",
+                height: "60%",
+                top: 3,
+              }}
+            >
+              <Text style={styles.text}>{this.state.playbackInstanceName}</Text>
+            </View>
+            <View
+              style={{
+                // backgroundColor: "green",
+                width: "90%",
+                alignSelf: "center",
+                overflow: "hidden",
+                // marginBottom: -50,
+                bottom: 20,
+                justifyContent: "flex-start",
+              }}
+            >
+              <Text style={styles.text}>
+                {this.state.isBuffering
+                  ? BUFFERING_STRING
+                  : this._getTimestamp()}
+              </Text>
+            </View>
+          
+          </View> */}
           {/* ............................Player.............. */}
           <View
             style={{
@@ -425,7 +593,7 @@ export default class AudioPlayer extends React.Component {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity  style={{ marginHorizontal: wp("3%") }}>
+              <TouchableOpacity style={{ marginHorizontal: wp("3%") }}>
                 <View style={{ padding: 7 }}>
                   <FontAwesome5 name="book-open" size={25} />
                 </View>
@@ -489,6 +657,21 @@ export default class AudioPlayer extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  detailsContainer: {
+    height: 30,
+    alignSelf: "center",
+    // flexDirection: "row",
+    // marginTop: 40,
+    // backgroundColor: "yellow",
+    alignItems: "center",
+    // bottom: 5,
+    width:wp('90%'),
+  },
+  text: {
+    fontSize: 15,
+    minHeight: 15,
+    alignSelf:"center",
+},
   title: {
     fontSize: 28,
     textAlign: "center",
@@ -502,18 +685,18 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textTransform: "capitalize",
   },
-  container: {
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    // height: height,
-    // maxHeight: 600,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // container: {
+  //   justifyContent: "space-evenly",
+  //   alignItems: "center",
+  //   // height: height,
+  //   // maxHeight: 600,
+  // },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: "#fff",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
   albumCover: {
     width: 250,
     height: 250,

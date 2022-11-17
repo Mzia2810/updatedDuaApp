@@ -22,7 +22,12 @@ import Ionicons from "@expo/vector-icons/Feather";
 // import EvilIcons from "@expo/vector-icons";
 import Checkbox from "expo-checkbox";
 
-import { MaterialCommunityIcons ,AntDesign, EvilIcons, SimpleLineIcons} from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  AntDesign,
+  EvilIcons,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
 import LanguagePicker, { ILanguagePicker } from "react-native-language-select";
 import {
   widthPercentageToDP as wp,
@@ -75,8 +80,7 @@ const BottomTabNavigator = ({ navigation }) => {
   const [language, setLanguage] = useState("English");
   const [image, setImage] = useState("../../assets/america.png");
   const [secChecked, setSecChecked] = useState(true);
- const [checkValue,setCheckValue] = useState(false)
-
+  const [checkValue, setCheckValue] = useState(false);
 
   const handleBrightness = async () => {
     const { status } = await Brightness.requestPermissionsAsync();
@@ -85,12 +89,16 @@ const BottomTabNavigator = ({ navigation }) => {
     }
   };
 
-
-
-
   const DuaHeader = () => {
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
         <TouchableOpacity onPress={handleBrightness}>
           <Ionicons name="sun" size={25} color="#fff" />
         </TouchableOpacity>
@@ -98,7 +106,7 @@ const BottomTabNavigator = ({ navigation }) => {
         <View
           style={{
             // backgroundColor: "green",
-          marginLeft:hp('32%'),
+            marginLeft: hp("32%"),
             flexDirection: "row",
           }}
         >
@@ -111,8 +119,13 @@ const BottomTabNavigator = ({ navigation }) => {
             }}
             source={require("../../assets/usa.png")}
           />
-          <Text style={{ color: "#fff", fontSize: 15 ,marginLeft:2}}>{language}</Text>
-          <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
+          <Text style={{ color: "#fff", fontSize: 15, marginLeft: 2 }}>
+            {language}
+          </Text>
+          <TouchableOpacity
+            style={{ marginTop: 3, marginLeft: 5 }}
+            onPress={() => setModalVisible(true)}
+          >
             <Ionicons name="chevron-down" size={20} color="#fff" />
           </TouchableOpacity>
 
@@ -128,7 +141,11 @@ const BottomTabNavigator = ({ navigation }) => {
             <View
               style={[
                 styles.centeredView,
-                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+                {
+                  baackgroundColor: "red",
+                  height: hp("100%"),
+                  marginTop: -hp("1%"),
+                },
               ]}
             >
               <View style={styles.modalView}>
@@ -156,13 +173,18 @@ const BottomTabNavigator = ({ navigation }) => {
 
   const PrayerTime = () => {
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       
-
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
         <View
           style={{
             // backgroundColor: "green",
-          marginLeft:hp('32%'),
+            marginLeft: hp("32%"),
             flexDirection: "row",
           }}
         >
@@ -175,11 +197,23 @@ const BottomTabNavigator = ({ navigation }) => {
             }}
             source={require("../../assets/usa.png")}
           />
-          <Text style={{ color: "#fff", fontSize: 15,fontWeight:'400', marginLeft:2 }}>{language}</Text>
-          <TouchableOpacity style={{marginTop:3,marginLeft:3}} onPress={() => setModalVisible(true)}>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 15,
+              fontWeight: "400",
+              marginLeft: 2,
+            }}
+          >
+            {language}
+          </Text>
+          <TouchableOpacity
+            style={{ marginTop: 3, marginLeft: 3 }}
+            onPress={() => setModalVisible(true)}
+          >
             <Ionicons name="chevron-down" size={20} color="#fff" />
           </TouchableOpacity>
-          <TouchableOpacity style={{marginLeft:10,marginTop:2}} >
+          <TouchableOpacity style={{ marginLeft: 10, marginTop: 2 }}>
             <SimpleLineIcons name="calendar" size={17} color="#fff" />
           </TouchableOpacity>
 
@@ -195,7 +229,11 @@ const BottomTabNavigator = ({ navigation }) => {
             <View
               style={[
                 styles.centeredView,
-                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+                {
+                  baackgroundColor: "red",
+                  height: hp("100%"),
+                  marginTop: -hp("1%"),
+                },
               ]}
             >
               <View style={styles.modalView}>
@@ -221,41 +259,52 @@ const BottomTabNavigator = ({ navigation }) => {
     );
   };
 
-
-
-
   const Favorite = () => {
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-       <Text style={{fontSize:18, fontWeight:'500', color:'#fff'}}>Favorite</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <Text style={{ fontSize: 18, fontWeight: "500", color: "#fff" }}>
+          Favorite
+        </Text>
 
         <View
           style={{
             // backgroundColor: "green",
-          marginLeft:hp('29%'),
+            marginLeft: hp("29%"),
             flexDirection: "row",
-            marginTop:1,
+            marginTop: 1,
           }}
         >
-        <TouchableOpacity onPress={() =>setCheckValue(true)}>
-
-        <Checkbox
-              style={{borderColor:'#fff',marginTop:2, width:16,height:15,marginRight:13}}
+          <TouchableOpacity
+            style={{ marginTop: 3, marginRight: 13 }}
+            onPress={() => setCheckValue(true)}
+          >
+            <View style={{padding:1.5,borderWidth:1,borderColor:'#fff', borderStyle:'dotted'}}>
+            <Checkbox
+              style={{ borderColor: "#fff" , width: 15, height: 15,}}
               value={checkValue}
               onValueChange={setCheckValue}
               color={checkValue ? "#fff" : undefined}
-              />
-              </TouchableOpacity>
-          <TouchableOpacity>
-          <MaterialCommunityIcons
-                          name="cards-heart-outline"
-                          size={20}
-                          color='#fff'
-                        />
+            />
+            </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{marginLeft:10}}>
-          <AntDesign name="sharealt" color='#fff' size={20} />
+          <TouchableOpacity style={{marginTop:3 }}>
+            <AntDesign name="sharealt" color="#fff" size={20} />
           </TouchableOpacity>
+          <TouchableOpacity style={{marginLeft:10,marginTop:3}}>
+            <MaterialCommunityIcons
+              name="cards-heart-outline"
+              size={20}
+              color="#fff"
+            />
+          </TouchableOpacity>
+        
 
           <Modal
             animationType="slide"
@@ -269,7 +318,11 @@ const BottomTabNavigator = ({ navigation }) => {
             <View
               style={[
                 styles.centeredView,
-                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+                {
+                  baackgroundColor: "red",
+                  height: hp("100%"),
+                  marginTop: -hp("1%"),
+                },
               ]}
             >
               <View style={styles.modalView}>
@@ -295,30 +348,29 @@ const BottomTabNavigator = ({ navigation }) => {
     );
   };
 
-
-
-
-
-
-
-
-
-
   const SettingHead = () => {
     return (
-      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
-      <Text style={{fontSize:18, fontWeight:'500', color:'#fff'}}>Settings</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: hp("2%"),
+          marginTop: hp("5%"),
+          width: wp("90%"),
+        }}
+      >
+        <Text style={{ fontSize: 18, fontWeight: "500", color: "#fff" }}>
+          Settings
+        </Text>
 
-       <View
-         style={{
-           // backgroundColor: "green",
-         marginLeft:hp('30%'),
-           flexDirection: "row",
-           marginTop:3,
-         }}
-       >
-       
-{/*          
+        <View
+          style={{
+            // backgroundColor: "green",
+            marginLeft: hp("30%"),
+            flexDirection: "row",
+            marginTop: 3,
+          }}
+        >
+          {/*          
          <TouchableOpacity>
          <MaterialCommunityIcons
                          name="cards-heart-outline"
@@ -330,54 +382,47 @@ const BottomTabNavigator = ({ navigation }) => {
          <AntDesign name="sharealt" color='#fff' size={25} />
          </TouchableOpacity> */}
 
-         <Modal
-           animationType="slide"
-           transparent={true}
-           visible={modalVisible}
-           onRequestClose={() => {
-             Alert.alert("Modal has been closed.");
-             setModalVisible(!modalVisible);
-           }}
-         >
-           <View
-             style={[
-               styles.centeredView,
-               { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
-             ]}
-           >
-             <View style={styles.modalView}>
-               <LanguagePicker
-                 initialIndex={1}
-                 data={data}
-                 onSelect={(selectedItem: ILanguagePicker) => {
-                   setLanguage(selectedItem.title);
-                   setImage(selectedItem.Image);
-                 }}
-               />
-               <Pressable
-                 style={[styles.button, styles.buttonClose]}
-                 onPress={() => setModalVisible(!modalVisible)}
-               >
-                 <Text style={styles.textStyle}>Cancel</Text>
-               </Pressable>
-             </View>
-           </View>
-         </Modal>
-       </View>
-     </View>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View
+              style={[
+                styles.centeredView,
+                {
+                  baackgroundColor: "red",
+                  height: hp("100%"),
+                  marginTop: -hp("1%"),
+                },
+              ]}
+            >
+              <View style={styles.modalView}>
+                <LanguagePicker
+                  initialIndex={1}
+                  data={data}
+                  onSelect={(selectedItem: ILanguagePicker) => {
+                    setLanguage(selectedItem.title);
+                    setImage(selectedItem.Image);
+                  }}
+                />
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={styles.textStyle}>Cancel</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+        </View>
+      </View>
     );
   };
-
-
-
-
- 
-
-
-
-
-
-
 
   const styles = StyleSheet.create({
     centeredView: {
@@ -462,7 +507,7 @@ const BottomTabNavigator = ({ navigation }) => {
     setIsSetting(false);
     setIsProfile(true);
     navigation.navigate("Profile");
-  };
+  };
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -471,9 +516,8 @@ const BottomTabNavigator = ({ navigation }) => {
       screenOptions={{
         tabBarActiveTintColor: "#A044FF",
         tabBarShowLabel: false,
-        tabBarHideOnKeyboard:true,
+        tabBarHideOnKeyboard: true,
       }}
-
     >
       <Tab.Screen
         name="Home"
@@ -490,7 +534,7 @@ const BottomTabNavigator = ({ navigation }) => {
             right: 0,
             bottom: 0,
           },
-          headerShown: true,
+          headerShown: true,
           tabBarLabel: "Home",
           tabBarIcon: ({ color }) => (
             <Pressable onPress={handleDua}>
@@ -508,7 +552,7 @@ const BottomTabNavigator = ({ navigation }) => {
                       textAlign: "center",
                       fontSize: 13,
                       marginTop: 5,
-                      marginLeft:5,
+                      marginLeft: 5,
                     }}
                   >
                     Dua
@@ -526,7 +570,7 @@ const BottomTabNavigator = ({ navigation }) => {
                       textAlign: "center",
                       fontSize: 13,
                       marginTop: 5,
-                      marginLeft:5,
+                      marginLeft: 5,
                     }}
                   >
                     Dua
@@ -553,20 +597,19 @@ const BottomTabNavigator = ({ navigation }) => {
             right: 0,
             bottom: 0,
           },
-          headerShown: true,
+          headerShown: true,
           tabBarLabel: "Prayer Timing",
           tabBarIcon: ({ color }) => (
             <Pressable onPress={handlePrayer}>
               {isPrayer == true ? (
                 <>
-                  
                   <Image
                     style={{ color: color, marginLeft: 7 }}
                     source={require("../../assets/bottomTab/activePrayer.png")}
                   />
                   <Text
                     style={{
-                      color: '#A044FF',
+                      color: "#A044FF",
                       textAlign: "center",
                       fontSize: 12,
                       marginTop: 5,
@@ -613,20 +656,24 @@ const BottomTabNavigator = ({ navigation }) => {
             right: 0,
             bottom: 0,
           },
-          headerShown: true,
+          headerShown: true,
           tabBarLabel: "Favorite",
           tabBarIcon: ({ color }) => (
             <Pressable onPress={handleFavorite}>
               {isFavorite == true ? (
                 <>
-                  
                   <Image
-                    style={{ color: color, marginLeft: 10,width:22,height:20 }}
+                    style={{
+                      color: color,
+                      marginLeft: 10,
+                      width: 22,
+                      height: 20,
+                    }}
                     source={require("../../assets/bottomTab/activeHeart.png")}
                   />
                   <Text
                     style={{
-                      color: '#A044FF',
+                      color: "#A044FF",
                       textAlign: "center",
                       fontSize: 13,
                       marginTop: 6,
@@ -638,7 +685,12 @@ const BottomTabNavigator = ({ navigation }) => {
               ) : (
                 <>
                   <Image
-                    style={{ color: color, marginLeft: 10,width:21,height:20}}
+                    style={{
+                      color: color,
+                      marginLeft: 10,
+                      width: 21,
+                      height: 20,
+                    }}
                     source={require("../../assets/bottomTab/favourite.png")}
                   />
                   <Text
@@ -676,47 +728,56 @@ const BottomTabNavigator = ({ navigation }) => {
             right: 0,
             bottom: 0,
           },
-          headerShown: true,
+          headerShown: true,
           tabBarLabel: "Setting",
           tabBarIcon: ({ color }) => (
             <Pressable onPress={handleSetting}>
-            {isSetting == true ? (
-              <>
-                
-                <Image
-                  style={{ color: color, marginLeft: 9,width:20,height:20}}
-                  source={require("../../assets/bottomTab/activeSetting.png")}
-                />
-                <Text
-                  style={{
-                    color: '#A044FF',
-                    textAlign: "center",
-                    fontSize: 13,
-                    marginTop: 5,
-                  }}
-                >
-                  Setting
-                </Text>
-              </>
-            ) : (
-              <>
-                <Image
-                  style={{ color: color, marginLeft: 9,width:20,height:20}}
-                  source={require("../../assets/bottomTab/setting.png")}
-                />
-                <Text
-                  style={{
-                    color: "gray",
-                    textAlign: "center",
-                    fontSize: 13,
-                    marginTop: 5,
-                  }}
-                >
-                  Setting
-                </Text>
-              </>
-            )}
-          </Pressable>
+              {isSetting == true ? (
+                <>
+                  <Image
+                    style={{
+                      color: color,
+                      marginLeft: 9,
+                      width: 20,
+                      height: 20,
+                    }}
+                    source={require("../../assets/bottomTab/activeSetting.png")}
+                  />
+                  <Text
+                    style={{
+                      color: "#A044FF",
+                      textAlign: "center",
+                      fontSize: 13,
+                      marginTop: 5,
+                    }}
+                  >
+                    Setting
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <Image
+                    style={{
+                      color: color,
+                      marginLeft: 9,
+                      width: 20,
+                      height: 20,
+                    }}
+                    source={require("../../assets/bottomTab/setting.png")}
+                  />
+                  <Text
+                    style={{
+                      color: "gray",
+                      textAlign: "center",
+                      fontSize: 13,
+                      marginTop: 5,
+                    }}
+                  >
+                    Setting
+                  </Text>
+                </>
+              )}
+            </Pressable>
           ),
         }}
         component={Setting}
@@ -731,49 +792,51 @@ const BottomTabNavigator = ({ navigation }) => {
           headerShown: false,
           tabBarLabel: "Profile",
           tabBarIcon: ({ color }) => (
-
-
-            <View style={{width:50,height:50,alignItems:'center',justifyContent:'center'}}>
-            <Pressable  onPress={handleProfile}>
-                          
-              {isProfile == true ? (
-                <>
-                  
-                  <Image
-                    style={{ color: color, marginLeft:7 }}
-                    source={require("../../assets/bottomTab/activeProfile.png")}
-                  />
-                  <Text
-                    style={{
-                      color: '#A044FF',
-                      textAlign: "center",
-                      fontSize: 13,
-                      marginTop: 5,
-                    }}
-                  >
-                   Profile
-                  </Text>
-                </>
-              ) : (
-                <>
-                  <Image
-                    style={{ color: color, marginLeft: 7 }}
-                    source={require("../../assets/bottomTab/profile.png")}
-                  />
-                  <Text
-                    style={{
-                      color: "gray",
-                      textAlign: "center",
-                      fontSize: 13,
-                      marginTop: 5,
-                    }}
-                  >
-                   Profile
-                  </Text>
-                </>
-              )}
-            
-            </Pressable>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Pressable onPress={handleProfile}>
+                {isProfile == true ? (
+                  <>
+                    <Image
+                      style={{ color: color, marginLeft: 7 }}
+                      source={require("../../assets/bottomTab/activeProfile.png")}
+                    />
+                    <Text
+                      style={{
+                        color: "#A044FF",
+                        textAlign: "center",
+                        fontSize: 13,
+                        marginTop: 5,
+                      }}
+                    >
+                      Profile
+                    </Text>
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      style={{ color: color, marginLeft: 7 }}
+                      source={require("../../assets/bottomTab/profile.png")}
+                    />
+                    <Text
+                      style={{
+                        color: "gray",
+                        textAlign: "center",
+                        fontSize: 13,
+                        marginTop: 5,
+                      }}
+                    >
+                      Profile
+                    </Text>
+                  </>
+                )}
+              </Pressable>
             </View>
           ),
         }}
@@ -876,11 +939,3 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 });
-
-
-
-
-
-
-
-
