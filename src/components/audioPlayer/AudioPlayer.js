@@ -488,18 +488,18 @@ export default class AudioPlayer extends React.Component {
               style={{
                 // backgroundColor: "red",
                 // width: "90%",
-             alignSelf:'flex-start',
+             alignSelf:'center',
                 // overflow: "hidden",
                 height: "60%",
                 // top: 3,
                 flexDirection: "row",
               }}
             >
-              <Text style={[styles.text, { marginRight: 60 }]}>
+              <Text style={[styles.text, { marginRight: 20 }]}>
                 {this._getTimeStart()}
               </Text>
               <Text style={styles.text}>{this.state.playbackInstanceName}</Text>
-              <Text style={[styles.text, { marginLeft: 70 }]}>
+              <Text style={[styles.text, { marginLeft: 20 }]}>
                 {this._getTimeEnd()}
               </Text>
             </View>
@@ -663,9 +663,9 @@ const styles = StyleSheet.create({
     // flexDirection: "row",
     // marginTop: 40,
     // backgroundColor: "yellow",
-    alignItems: "center",
+    // alignItems: "center",
     // bottom: 5,
-    width:wp('90%'),
+    width:wp('70%'),
   },
   text: {
     fontSize: 15,
