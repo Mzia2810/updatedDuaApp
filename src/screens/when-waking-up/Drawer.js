@@ -27,40 +27,43 @@ import { EvilIcons } from "@expo/vector-icons";
 export default function DrawerComponent({show,setShow}) {
 //   const [show, setShow] = useState(false);
   const [playIcon, setPlay] = useState(false);
+  const [playingitem,setPlayingItem]=useState(-1)
   const [press, setPress] = useState(false);
   //  const onPress = () => setPlay(true);
   const DATA = [
     {
-      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+      id: 0,
       title: "First",
     },
     {
-      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bb",
+      id: 1,
       title: "two",
     },
     {
-      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bc",
+      id: 2,
       title: "three",
     },
    
   ];
-  const renderItem = ({ title }) => (
+  const renderItem = ({ item}) => (
     <Pressable
       style={[styles.button, styles.buttonClose]}
       onPress={() => setShow(!show)}
     >
-      <View style={{ flexDirection: "row",backgroundColor:'yellow' }}>
-        {playIcon == false ? (
-          <TouchableOpacity onPress={() => setPlay(true)}>
-            <Ionicons
-              name="play"
-              size={20}
-              color="black"
-              style={{ marginRight: 40 }}
-            />
-          </TouchableOpacity>
+      <View style={{ flexDirection: "row" }}>
+        { playingitem != item.id ? (
+<TouchableOpacity onPress={() => setPlayingItem(item.id)}>
+<Ionicons
+  name="play"
+  size={20}
+  color="black"
+  style={{ marginRight: 40 }}
+/>
+</TouchableOpacity>
         ) : (
-          <TouchableOpacity onPress={() => setPlay(false)}>
+          <TouchableOpacity onPress={() => {
+            setPlayingItem(-1)
+            setPlay(!playIcon)}}>
             <Ionicons
               name="pause"
               size={20}
@@ -70,7 +73,7 @@ export default function DrawerComponent({show,setShow}) {
           </TouchableOpacity>
         )}
 
-        <Text style={styles.textStyle}>my item</Text>
+        <Text style={styles.textStyle}>{item.title}</Text>
       <EvilIcons name="chevron-right" size={20} style={{marginTop:3,marginLeft:40}} />
       </View>
     </Pressable>
@@ -86,9 +89,7 @@ export default function DrawerComponent({show,setShow}) {
       }
     }
     >
-      <View
-        
-        
+      <View 
       >
         <Modal
         style={{height:hp('100%'),backgroundColor:'red'}}
@@ -100,6 +101,8 @@ export default function DrawerComponent({show,setShow}) {
             setShow(!show);
           }}
         >
+          <TouchableOpacity onPress={()=>setShow(!show)}>
+
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <FlatList
@@ -109,6 +112,7 @@ export default function DrawerComponent({show,setShow}) {
               />
             </View>
           </View>
+          </TouchableOpacity>
         </Modal>
         <Pressable
           style={[styles.button, styles.buttonOpen]}

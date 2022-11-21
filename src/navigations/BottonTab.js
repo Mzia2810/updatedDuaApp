@@ -331,19 +331,15 @@ const BottomTabNavigator = ({ navigation }) => {
             >
               <View style={styles.modalView}>
                 <LanguagePicker
-                  initialIndex={1}
+                  // initialIndex={1}
                   data={data}
                   onSelect={(selectedItem: ILanguagePicker) => {
                     setLanguage(selectedItem.title);
                     setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
                   }}
                 />
-                <Pressable
-                  style={[styles.button, styles.buttonClose]}
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Text style={styles.textStyle}>Cancel</Text>
-                </Pressable>
+              
               </View>
             </View>
           </Modal>
@@ -407,19 +403,20 @@ const BottomTabNavigator = ({ navigation }) => {
             >
               <View style={styles.modalView}>
                 <LanguagePicker
-                  initialIndex={1}
+                  // initialIndex={1}
                   data={data}
                   onSelect={(selectedItem: ILanguagePicker) => {
                     setLanguage(selectedItem.title);
                     setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
                   }}
                 />
-                <Pressable
+                {/* <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}
                 >
                   <Text style={styles.textStyle}>Cancel</Text>
-                </Pressable>
+                </Pressable> */}
               </View>
             </View>
           </Modal>

@@ -83,7 +83,7 @@ const Settings = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [checked, setChecked] = useState("");
   const [selectFont, setSelectFont] = useState(false);
-
+const [colorModel,setColorModel]=useState(false)
   const [genderOpen, setGenderOpen] = useState(false);
   const [genderValue, setGenderValue] = useState(null);
   const [gender, setGender] = useState([
@@ -246,8 +246,61 @@ const Settings = ({ navigation }) => {
                 <FontAwesome5 name="paint-roller" size={20} color="#A044FF" />
               </View>
               <Text style={[styles.text,{marginTop:hp('1%')}]}>Color Scheme </Text>
+              <Modal
+        animationType="slide"
+        transparent={true}
+        visible={colorModel}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setColorModel(!colorModel);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={[styles.modalView,{padding:20}]}>
+           <View style={{
+            flexDirection:'row',
+            justifyContent:'space-evenly'
+           }}>
+            <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
+              <View style={{
+                width:wp('10%'),
+                backgroundColor:'red',
+                height:hp('5%'),
+                borderRadius:5
+              }}> 
+
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
+              <View style={{
+                width:wp('10%'),
+                backgroundColor:'red',
+                height:hp('5%'),
+                borderRadius:5,
+                marginLeft:wp('5%')
+              }}> 
+
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
+              <View style={{
+                width:wp('10%'),
+                backgroundColor:'red',
+                height:hp('5%'),
+                borderRadius:5,
+                marginLeft:wp('5%')
+              }}> 
+
+              </View>
+            </TouchableOpacity>
+           </View>
+            
+          </View>
+        </View>
+      </Modal>
               <View style={styles.arrow}>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
 
                 <Image
                   source={require("../../../../assets/color(2).png")}
