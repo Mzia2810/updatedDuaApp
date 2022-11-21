@@ -9,6 +9,8 @@ import {
   StyleSheet,
 } from "react-native";
 import React, { useState } from "react";
+import { LinearGradient } from "expo-linear-gradient";
+
 
 // import { styles } from "../../../screens/bottomTab/prayerTime/styles";
 // import Header from "../../../components/Header";
@@ -22,7 +24,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 
 const data = [
   {
@@ -225,11 +227,18 @@ const PrayerTiming = () => {
           data={data}
           // numColumns={3}
           renderItem={({ item, index, separators }) => (
-            <TouchableOpacity
+          
+            <>
+            {isActive==item.title?(
+              <TouchableOpacity
               key={index}
               onPress={() => setIsActive(item.title)}
-              style={isActive == item.title ? styles.btn : styles.inactivebtn}
             >
+              <LinearGradient
+      // Button Linear Gradient
+      colors={["#4E54C8", "#A044FF"]}
+    >
+              
               <View
                 style={{
                   width: wp("93%"),
@@ -238,7 +247,6 @@ const PrayerTiming = () => {
                   borderBottomWidth: 1,
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  // backgroundColor:'yellow',
                   marginLeft:14,
                 }}
               >
@@ -264,30 +272,146 @@ const PrayerTiming = () => {
                     {item.time}
                   </Text>
                   <TouchableOpacity>
-                    <MaterialCommunityIcons
-                      onPress={() => {
-                        triggerNotifications();
-                        setActiveBell(item.title);
-                      }}
-                      title="Trigger Local Notifications"
-                      color="#000"
-                      accessibilityLabel="Trigger Local Notifications"
-                      name={
-                        bellIcon == true && activeBell == item.title
-                          ? "bell-ring"
-                          : "bell"
-                      }
-                      size={15}
-                      style={
-                        isActive == item.title
-                          ? styles.bell
-                          : styles.inactivebell
-                      }
-                    />
+                  <TouchableOpacity>
+                    { bellIcon == true && activeBell == item.title
+                          ?(
+                            <Ionicons
+                            onPress={() => {
+                              triggerNotifications();
+                              setActiveBell(item.title);
+                            }}
+                            title="Trigger Local Notifications"
+                            color="#000"
+                            accessibilityLabel="Trigger Local Notifications"
+                            name={
+                              "md-notifications-off-circle-outline"
+                            }
+                            size={20}
+                            style={
+                              isActive == item.title
+                                ? styles.bell
+                                : styles.inactivebell
+                            }
+                          />
+                          
+                          ):(
+                            <MaterialCommunityIcons
+                            onPress={() => {
+                              triggerNotifications();
+                              setActiveBell(item.title);
+                            }}
+                            title="Trigger Local Notifications"
+                            color="#000"
+                            accessibilityLabel="Trigger Local Notifications"
+                            name={
+                              "bell-ring"
+                            }
+                            size={15}
+                            style={
+                              isActive == item.title
+                                ? styles.bell
+                                : styles.inactivebell
+                            }
+                          />
+                          
+                          )}
+                   
+                  </TouchableOpacity>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              </LinearGradient>
+            </TouchableOpacity>
+            ):(<TouchableOpacity
+              key={index}
+              onPress={() => setIsActive(item.title)}
+              style={isActive != item.title && styles.inactivebtn  }
+            >
+              
+              
+              <View
+                style={{
+                  width: wp("93%"),
+                  height: hp("7%"),
+                  borderColor: "#C4C4C4",
+                  borderBottomWidth: 1,
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginLeft:14,
+                }}
+              >
+                <Text
+                  style={
+                    isActive == item.title ? styles.title : styles.inactivetitle
+                  }
+                >
+                  {item.title}
+                </Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginHorizontal: hp("1.5%"),
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={
+                      isActive == item.title ? styles.time : styles.inactivetime
+                    }
+                  >
+                    {item.time}
+                  </Text>
+                  <TouchableOpacity>
+                    { bellIcon == true && activeBell == item.title
+                          ?(
+                            <Ionicons
+                            onPress={() => {
+                              triggerNotifications();
+                              setActiveBell(item.title);
+                            }}
+                            title="Trigger Local Notifications"
+                            color="#000"
+                            accessibilityLabel="Trigger Local Notifications"
+                            name={
+                              "md-notifications-off-circle-outline"
+                            }
+                            size={20}
+                            style={
+                              isActive == item.title
+                                ? styles.bell
+                                : styles.inactivebell
+                            }
+                          />
+                          
+                          ):(
+                            <MaterialCommunityIcons
+                            onPress={() => {
+                              triggerNotifications();
+                              setActiveBell(item.title);
+                            }}
+                            title="Trigger Local Notifications"
+                            color="#000"
+                            accessibilityLabel="Trigger Local Notifications"
+                            name={
+                              "bell-ring"
+                            }
+                            size={15}
+                            style={
+                              isActive == item.title
+                                ? styles.bell
+                                : styles.inactivebell
+                            }
+                          />
+                          
+                          )}
+                   
                   </TouchableOpacity>
                 </View>
               </View>
             </TouchableOpacity>
+            )}
+            </>
+            
           )}
         />
       </View>

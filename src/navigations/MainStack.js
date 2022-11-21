@@ -122,7 +122,7 @@ const MainStack = ({navigation}) => {
           <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
             <Ionicons name="chevron-down" size={20} color="#fff" />
           </TouchableOpacity>
-  
+{/*   
           <Modal
             animationType="slide"
             transparent={true}
@@ -135,27 +135,95 @@ const MainStack = ({navigation}) => {
             <View
               style={[
                 styles.centeredView,
-                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+                {  height: hp("100%") ,marginTop:-hp('1%')},
               ]}
             >
               <View style={styles.modalView}>
                 <LanguagePicker
-                  initialIndex={1}
+                  // initialIndex={1}
                   data={data}
                   onSelect={(selectedItem: ILanguagePicker) => {
                     setLanguage(selectedItem.title);
                     setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
                   }}
                 />
-                <Pressable
-                  style={[styles.button, styles.buttonClose]}
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Text style={styles.textStyle}>Cancel</Text>
-                </Pressable>
+               
               </View>
             </View>
-          </Modal>
+          </Modal> */}
+        </View>
+      </View>
+    );
+  };
+  const WhenWakeHeader = ({props}) => {
+    const {navigation} = props  ; 
+    const canGoBack =() =>{
+     
+
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+    }
+    return (
+      <View style={{ flexDirection: "row", marginHorizontal: hp('2%'),marginTop:hp('5%') , width:wp('90%')}}>
+       <View style={{flexDirection:'row'}}>
+
+        <TouchableOpacity  onPress={canGoBack}>
+          <MaterialIcons name="arrow-back" size={25} color="#fff" />
+        </TouchableOpacity>
+  <Text style={{fontSize:18,fontWeight:'500',marginLeft:20,color:'#ffff'}} >WhenWakeUp</Text>
+       </View>
+        <View
+          style={{
+            // backgroundColor: "green",
+          marginLeft:hp('13%'),
+            flexDirection: "row",
+          }}
+        >
+          <Image
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 50,
+              marginTop: 2,
+              marginRight: 7,
+            }}
+            source={require("../../assets/usa.png")}
+          />
+          <Text style={{ color: "#fff", fontSize: 15 ,marginLeft:2}}>{language}</Text>
+          <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
+            <Ionicons name="chevron-down" size={20} color="#fff" />
+          </TouchableOpacity>
+  
+          {/* <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View
+              style={[
+                styles.centeredView,
+                { height: hp("100%") ,marginTop:-hp('1%')},
+              ]}
+            >
+              <View style={styles.modalView}>
+                <LanguagePicker
+                  // initialIndex={1}
+                  data={data}
+                  onSelect={(selectedItem: ILanguagePicker) => {
+                    setLanguage(selectedItem.title);
+                    setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
+                  }}
+                />
+                
+              </View>
+            </View>
+          </Modal> */}
         </View>
       </View>
     );
@@ -201,7 +269,7 @@ const MainStack = ({navigation}) => {
           <TouchableOpacity style={{marginTop:3,marginLeft:5}} onPress={() => setModalVisible(true)}>
             <Ionicons name="chevron-down" size={20} color="#fff" />
           </TouchableOpacity>
-  
+{/*   
           <Modal
             animationType="slide"
             transparent={true}
@@ -214,27 +282,23 @@ const MainStack = ({navigation}) => {
             <View
               style={[
                 styles.centeredView,
-                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+                {  height: hp("100%") ,marginTop:-hp('1%')},
               ]}
             >
               <View style={styles.modalView}>
                 <LanguagePicker
-                  initialIndex={1}
+                  // initialIndex={1}
                   data={data}
                   onSelect={(selectedItem: ILanguagePicker) => {
                     setLanguage(selectedItem.title);
                     setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
                   }}
                 />
-                <Pressable
-                  style={[styles.button, styles.buttonClose]}
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Text style={styles.textStyle}>Cancel</Text>
-                </Pressable>
+               
               </View>
             </View>
-          </Modal>
+          </Modal> */}
         </View>
       </View>
     );
@@ -279,7 +343,7 @@ const MainStack = ({navigation}) => {
             <Ionicons name="chevron-down" size={20} color="#fff" />
           </TouchableOpacity>
   
-          <Modal
+          {/* <Modal
             animationType="slide"
             transparent={true}
             visible={modalVisible}
@@ -291,7 +355,7 @@ const MainStack = ({navigation}) => {
             <View
               style={[
                 styles.centeredView,
-                { baackgroundColor: "red", height: hp("100%") ,marginTop:-hp('1%')},
+                {  height: hp("100%") ,marginTop:-hp('1%')},
               ]}
             >
               <View style={styles.modalView}>
@@ -311,7 +375,7 @@ const MainStack = ({navigation}) => {
                 </Pressable>
               </View>
             </View>
-          </Modal>
+          </Modal> */}
         </View>
       </View>
     );
@@ -403,7 +467,7 @@ const MainStack = ({navigation}) => {
   
               // headerLeft: () => <Ionicons name="sun" size={25} color="#fff" />,
               headerTitle: "Premium ",
-              header: () => <GradientHeader  DuaHeader={DuaHeader}  props={props} />,
+              header: () => <GradientHeader  DuaHeader={WhenWakeHeader}  props={props} />,
             headerStyle: {
               backgroundColor: "transparent",
               position: "absolute",
@@ -419,7 +483,7 @@ const MainStack = ({navigation}) => {
         <Stack.Screen
           name="Premium"
           options={(props) => {
-            console.log('this my props when wake up =============',props);
+            
             return {
               headerStyle: {
                 backgroundColor:
@@ -445,7 +509,7 @@ const MainStack = ({navigation}) => {
         <Stack.Screen
           name="Flags"
           options={(props) => {
-            console.log('this my props when wake up =============',props);
+           
             return {
               headerStyle: {
                 backgroundColor:
@@ -463,7 +527,7 @@ const MainStack = ({navigation}) => {
               right: 0,
               bottom: 0,
             },
-            headerShown: true,
+            headerShown:true,
             }
           }}
           component={Flags}
@@ -516,7 +580,7 @@ const MainStack = ({navigation}) => {
           name="Suggestions"
           component={Suggestions}
           options={(props) => {
-            console.log('this my props when wake up =============',props);
+           
             return {
               headerStyle: {
                 backgroundColor:
@@ -551,19 +615,20 @@ const MainStack = ({navigation}) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <LanguagePicker
-              initialIndex={1}
+              // initialIndex={1}
               data={data}
               onSelect={(selectedItem: ILanguagePicker) => {
                 setLanguage(selectedItem.title);
                 setImage(selectedItem.Image);
+                setModalVisible(!modalVisible)
               }}
             />
-            <Pressable
+            {/* <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
               <Text style={styles.textStyle}>Cancel</Text>
-            </Pressable>
+            </Pressable> */}
           </View>
         </View>
       </Modal>

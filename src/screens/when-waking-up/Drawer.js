@@ -22,6 +22,7 @@ import {
   } from "react-native-responsive-screen";
 // or any pure javascript modules available in npm
 import { Card } from "react-native-paper";
+import { EvilIcons } from "@expo/vector-icons";
 
 export default function DrawerComponent({show,setShow}) {
 //   const [show, setShow] = useState(false);
@@ -31,7 +32,15 @@ export default function DrawerComponent({show,setShow}) {
   const DATA = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      title: "First Item",
+      title: "First",
+    },
+    {
+      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bb",
+      title: "two",
+    },
+    {
+      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bc",
+      title: "three",
     },
    
   ];
@@ -40,12 +49,12 @@ export default function DrawerComponent({show,setShow}) {
       style={[styles.button, styles.buttonClose]}
       onPress={() => setShow(!show)}
     >
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row",backgroundColor:'yellow' }}>
         {playIcon == false ? (
           <TouchableOpacity onPress={() => setPlay(true)}>
             <Ionicons
               name="play"
-              size={30}
+              size={20}
               color="black"
               style={{ marginRight: 40 }}
             />
@@ -54,7 +63,7 @@ export default function DrawerComponent({show,setShow}) {
           <TouchableOpacity onPress={() => setPlay(false)}>
             <Ionicons
               name="pause"
-              size={30}
+              size={20}
               color="black"
               style={{ marginRight: 40 }}
             />
@@ -62,6 +71,7 @@ export default function DrawerComponent({show,setShow}) {
         )}
 
         <Text style={styles.textStyle}>my item</Text>
+      <EvilIcons name="chevron-right" size={20} style={{marginTop:3,marginLeft:40}} />
       </View>
     </Pressable>
   );
@@ -156,7 +166,6 @@ const styles = StyleSheet.create({
   buttonClose: {},
   textStyle: {
     color: "black",
-    top: 5,
     right: 20,
     // fontWeight: "bold",
     textAlign: "center",

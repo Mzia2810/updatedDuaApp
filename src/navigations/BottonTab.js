@@ -41,7 +41,7 @@ const data: ILanguagePicker[] = [
   {
     title: "English",
     imageSource: require("../../assets/america.png"),
-    language: "en",
+   
   },
   {
     title: "Italian",
@@ -54,7 +54,7 @@ const data: ILanguagePicker[] = [
   {
     title: "Turkish",
     imageSource: require("../../assets/turkey.png"),
-    language: "tr-TR",
+    
   },
   {
     title: "Swedish",
@@ -69,6 +69,7 @@ const data: ILanguagePicker[] = [
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = ({ navigation }) => {
+  const [languageIndex,setLanguageIndex]=useState(0)
   const [isDua, setIsDua] = useState(true);
   const [isPrayer, setIsPrayer] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -142,7 +143,6 @@ const BottomTabNavigator = ({ navigation }) => {
               style={[
                 styles.centeredView,
                 {
-                  baackgroundColor: "red",
                   height: hp("100%"),
                   marginTop: -hp("1%"),
                 },
@@ -150,19 +150,22 @@ const BottomTabNavigator = ({ navigation }) => {
             >
               <View style={styles.modalView}>
                 <LanguagePicker
-                  initialIndex={1}
+                  // initialIndex={languageIndex}
                   data={data}
                   onSelect={(selectedItem: ILanguagePicker) => {
                     setLanguage(selectedItem.title);
                     setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
+                    // setLanguageIndex(selectedItem.index)
                   }}
+                 
                 />
-                <Pressable
+                {/* <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}
                 >
                   <Text style={styles.textStyle}>Cancel</Text>
-                </Pressable>
+                </Pressable> */}
               </View>
             </View>
           </Modal>
@@ -238,19 +241,20 @@ const BottomTabNavigator = ({ navigation }) => {
             >
               <View style={styles.modalView}>
                 <LanguagePicker
-                  initialIndex={1}
+                  // initialIndex={1}
                   data={data}
                   onSelect={(selectedItem: ILanguagePicker) => {
                     setLanguage(selectedItem.title);
                     setImage(selectedItem.Image);
+                    setModalVisible(!modalVisible)
                   }}
                 />
-                <Pressable
+                {/* <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}
                 >
                   <Text style={styles.textStyle}>Cancel</Text>
-                </Pressable>
+                </Pressable> */}
               </View>
             </View>
           </Modal>

@@ -333,13 +333,11 @@ export default class AudioPlayer extends React.Component {
   //   ) {
   //     return `${this._getMMSSFromMillis(
   //       this.state.playbackInstancePosition
-  //     )}                                                                 
+  //     )}
   //       ${this._getMMSSFromMillis(this.state.playbackInstanceDuration)}`;
   //   }
   //   //   return "";
   // }
-
-
 
   _getTimeStart() {
     if (
@@ -359,11 +357,8 @@ export default class AudioPlayer extends React.Component {
     ) {
       return `${this._getMMSSFromMillis(this.state.playbackInstanceDuration)}`;
     }
-    return "";
-  }
-
-
-
+    return "";
+  }
 
   render() {
     return (
@@ -481,14 +476,12 @@ export default class AudioPlayer extends React.Component {
             />
           </View>
 
-
-
           <View style={styles.detailsContainer}>
             <View
               style={{
                 // backgroundColor: "red",
                 // width: "90%",
-             alignSelf:'center',
+                alignSelf: "center",
                 // overflow: "hidden",
                 height: "60%",
                 // top: 3,
@@ -503,14 +496,7 @@ export default class AudioPlayer extends React.Component {
                 {this._getTimeEnd()}
               </Text>
             </View>
-          
- </View>
-
-
-
-
-
-
+          </View>
 
           {/* <View style={styles.detailsContainer}>
             <View
@@ -665,13 +651,13 @@ const styles = StyleSheet.create({
     // backgroundColor: "yellow",
     // alignItems: "center",
     // bottom: 5,
-    width:wp('70%'),
+    width: wp("70%"),
   },
   text: {
     fontSize: 15,
     minHeight: 15,
-    alignSelf:"center",
-},
+    alignSelf: "center",
+  },
   title: {
     fontSize: 28,
     textAlign: "center",

@@ -28,6 +28,23 @@ import Benefits from "./Benefits";
 
 const { width, height } = Dimensions.get("window");
 
+const allDuaData = [
+  {
+    id: 1,
+    arabic:
+      "اَلْحَمْدُلِلّٰہِ الَّذِیْ اَحْیَانَا بَعْدَ مَااَمَاتَنَا وَاِلَیْہِ النُّشُوْرُ",
+    eng: "Alhamdulillahilladzi ahyana ba’dama amatana wa ilaihinnushur",
+    urdu: "شکر ہے اللہ کا جس نے ہمیں موت کے بعد زندہ کیا اور اسی کی  طرف جانا ہے.",
+  },
+  {
+    id: 2,
+    arabic:
+      "اَلْحَمْدُلِلّٰہِ الَّذِیْ اَحْیَانَا بَعْدَ مَااَمَاتَنَا وَاِلَیْہِ النُّشُوْرُ",
+    eng: "Alhamdulillahilladzi ahyana ba’dama amatana wa ilaihinnushur",
+    urdu: "شکر ہے اللہ کا جس نے ہمیں موت کے بعد زندہ کیا اور اسی کی  طرف جانا ہے.",
+  },
+];
+
 const WhenWakeUp = ({ navigation }) => {
   const [isDua, setIsDua] = useState(true);
   const [isBenefits, setIsBenefits] = useState(false);
@@ -41,13 +58,8 @@ const WhenWakeUp = ({ navigation }) => {
   const [showValumeBox, setShowValumeBox] = useState(false);
 
   const handleVolumeBox = () => {
-    setShowValumeBox(!showValumeBox)
-  }
-  // const [modalVisible, setModalVisible] = useState(false);
-  // const [isloading, setIsloading] = useState(true);
-  // const [search, setSearch] = useState();
-  // const [copyList, setCopyList] = useState();
-  // const [color, setColor] = useState({ color: "black" });
+    setShowValumeBox(!showValumeBox);
+  };
 
   const handleDua = () => {
     setIsDua(true);
@@ -61,8 +73,8 @@ const WhenWakeUp = ({ navigation }) => {
   return (
     <View
       style={{
-        backgroundColor:'#FAF9FC',
-        height:hp('100%'),
+        backgroundColor: "#FAF9FC",
+        height: hp("100%"),
       }}
     >
       {showDrawer && (
@@ -139,407 +151,222 @@ const WhenWakeUp = ({ navigation }) => {
           <>
             <ImageBackground
               source={require("../../../assets/little-kids/dreamingUp.png")}
-              style={{ height: hp("75%"),}}
+              style={{ height: hp("70%") }}
             >
-              <View
-                style={{
-                  backgroundColor:'#ffff',
-                  marginHorizontal: wp("5%"),
-                  marginVertical: hp("1%"),
-                  shadowColor: "#000",
-                  shadowOffset: {
-                    width: wp("0%"),
-                    height: hp("1%"),
-                  },
-                  shadowOpacity: 0.2,
-                  shadowRadius: 1.41,
+              <FlatList
+                data={allDuaData}
+                renderItem={({ item }) => (
+                  <View
+                    key={item.id}
+                    style={{
+                      backgroundColor: "#ffff",
+                      marginHorizontal: wp("5%"),
+                      marginVertical: hp("1%"),
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: wp("0%"),
+                        height: hp("1%"),
+                      },
+                      shadowOpacity: 0.2,
+                      shadowRadius: 1.41,
 
-                  elevation: 2,
-                  marginBottom: hp("1%"),
-                  // backgroundColor: "#ffff",
-      
-
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "column",
-                    padding: 3,
-
-                    // borderBottomWidth: 1,
-                    // borderBottomColor: "#C4C4C4",
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity style={{marginLeft:15}}>
-                      <View
-                        style={{
-                          padding: 5,
-                        }}
-                      >
-                        <MaterialCommunityIcons
-                          name="cards-heart-outline"
-                          size={20}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                      <View
-                        style={{
-                          padding: 5,
-                        }}
-                      >
-                        <AntDesign name="sharealt" size={20} />
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-                {/* .............Arabic............ */}
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 7,
-                    justifyContent: "space-between",
-                    borderBottomWidth: 1,
-                    borderBottomColor: "#C4C4C4",
-                    paddingVertical:7,
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity
-                      
-                    >
-                      <View
-                        style={{
-                          marginTop:3,
-                          padding: 5,
-                        }}
-                      >
-                        <Entypo name="controller-play" size={20} />
-                      </View>
-                    </TouchableOpacity>
-                    <View style={{marginTop:8}}>
-                      <Text
-                        style={{
-                          fontSize:10,
-                          fontWeight:'400',
-                          padding: 3,
-                       paddingLeft:14,
-                            borderLeftWidth: 2,
-                            borderLeftColor: "#FFD27B",
-                       
-                        }}
-                      >
-                        Arabic
-                      </Text>
-                    </View>
-                  </View>
-                  <View>
-                    <Text style={{ marginTop: hp("1%"),color:'#800000',fontSize:14,lineHeight:19,fontWeight:'400' }}>
-                      اَلْحَمْدُلِلّٰہِ الَّذِیْ اَحْیَانَا بَعْدَ مَااَمَاتَنَا
-                      وَاِلَیْہِ النُّشُوْرُ
-                    </Text>
-                  </View>
-                </View>
-                {/* End Aracbic */}
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 5,
-                    justifyContent: "space-between",
-                    // backgroundColor:'red',
-                    paddingBottom:10,
-    // backgroundColor:'green',
-                    marginTop:15
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity
+                      elevation: 2,
+                      marginBottom: hp("1%"),
+                      // backgroundColor: "#ffff",
+                    }}
+                  >
+                    <View
                       style={{
-                        backgroundColor: "#A044FF",
-                    marginRight: hp("1%"),
-                    justifyContent: "center",
-                    width:85,
-                    height:25,
-                    // marginTop:2,
-                    marginLeft:5,
+                        flexDirection: "column",
+                        padding: 3,
+
+                        // borderBottomWidth: 1,
+                        // borderBottomColor: "#C4C4C4",
                       }}
                     >
-                      <Text
-                        style={{
-                          color: "#fff",
-                      textAlign: "center",
-                      fontWeight:'400',
-                      fontSize:10,
-                      paddingHorizontal:2,
-                      lineHeight:15,
-                        }}
-                      >
-                        Transliteration
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{ width: wp("60%") }}>
-                    <Text style={{textAlign:'center', fontSize:10,lineHeight:15,fontWeight:'400'}}>
-                      Alhamdulillahilladzi ahyana ba’dama amatana wa ilaihin
-                      nushur
-                    </Text>
-                  </View>
-                </View>
-                {/* ................. */}
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 5,
-                    justifyContent: "space-between",
-                    marginTop: hp("4%"),
-                    // backgroundColor:'red',
-                    marginTop:15,
-                    paddingTop:10,
-                    paddingBottom:10,
-                    borderTopWidth:1,
-                    borderTopColor:'#C4C4C4'
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity
-                     
-                    >
-                      <View
-                        style={{
-                          marginTop:3,
-                          padding: 5,
-                        }}
-                      >
-                        <Entypo name="controller-play" size={20} />
+                      <View style={{ flexDirection: "row" }}>
+                        <TouchableOpacity style={{ marginLeft: 15 }}>
+                          <View
+                            style={{
+                              padding: 5,
+                            }}
+                          >
+                            <MaterialCommunityIcons
+                              name="cards-heart-outline"
+                              size={20}
+                            />
+                          </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                          <View
+                            style={{
+                              padding: 5,
+                            }}
+                          >
+                            <AntDesign name="sharealt" size={20} />
+                          </View>
+                        </TouchableOpacity>
                       </View>
-                    </TouchableOpacity>
-                    <View style={{marginTop:8}}>
-                      <Text
-                        style={{
-                          fontSize:10,
-                          fontWeight:'400',
-                          padding: 3,
-                       paddingLeft:14,
-                            borderLeftWidth: 2,
-                            borderLeftColor: "#FFD27B",
-                       
-                        }}
-                      >
-                       urdu
-                      </Text>
                     </View>
-                  </View>
-                  <View style={{ width: wp("60%") ,marginTop:7}}>
-                    <Text style={{textAlign:'center',fontSize:12,lineHeight:15,fontWeight:'400'}}>
-                      شکر ہے اللہ کا جس نے ہمیں موت کے بعد زندہ کیا اور اسی کی
-                      طرف جانا ہے.
-                    </Text>
-                  </View>
-                </View>
-              </View>
-
-
-              {/* .................................................... */}
-             
-              <View
-                style={{
-                  backgroundColor:'#ffff',
-                  marginHorizontal: wp("5%"),
-                  marginVertical: hp("1%"),
-                  shadowColor: "#000",
-                  shadowOffset: {
-                    width: wp("0%"),
-                    height: hp("1%"),
-                  },
-                  shadowOpacity: 0.2,
-                  shadowRadius: 1.41,
-
-                  elevation: 2,
-                  marginBottom: hp("1%"),
-                  // backgroundColor: "#ffff",
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "column",
-                    padding: 3,
-
-                    // borderBottomWidth: 1,
-                    // borderBottomColor: "#C4C4C4",
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity style={{marginLeft:15}}>
-                      <View
-                        style={{
-                          padding: 5,
-                        }}
-                      >
-                        <MaterialCommunityIcons
-                          name="cards-heart-outline"
-                          size={20}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                      <View
-                        style={{
-                          
-                          padding: 5,
-                        }}
-                      >
-                        <AntDesign name="sharealt" size={20} />
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-                {/* .............Arabic............ */}
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 7,
-                    justifyContent: "space-between",
-                    borderBottomWidth: 1,
-                    borderBottomColor: "#C4C4C4",
-                    paddingVertical:7,
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity
-                      
-                    >
-                      <View
-                        style={{
-                          marginTop:3,
-                          padding: 5,
-                        }}
-                      >
-                        <Entypo name="controller-play" size={20} />
-                      </View>
-                    </TouchableOpacity>
-                    <View style={{marginTop:8}}>
-                      <Text
-                        style={{
-                          fontSize:10,
-                          fontWeight:'400',
-                          padding: 3,
-                       paddingLeft:14,
-                            borderLeftWidth: 2,
-                            borderLeftColor: "#FFD27B",
-                       
-                        }}
-                      >
-                        Arabic
-                      </Text>
-                    </View>
-                  </View>
-                  <View>
-                    <Text style={{ marginTop: hp("1%"),color:'#800000',fontSize:14,lineHeight:19,fontWeight:'400' }}>
-                      اَلْحَمْدُلِلّٰہِ الَّذِیْ اَحْیَانَا بَعْدَ مَااَمَاتَنَا
-                      وَاِلَیْہِ النُّشُوْرُ
-                    </Text>
-                  </View>
-                </View>
-                {/* End Aracbic */}
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 5,
-                    justifyContent: "space-between",
-                    // backgroundColor:'red',
-                    paddingBottom:10,
-    // backgroundColor:'green',
-                    marginTop:15
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity
+                    {/* .............Arabic............ */}
+                    <View
                       style={{
-                        backgroundColor: "#A044FF",
-                    marginRight: hp("1%"),
-                    justifyContent: "center",
-                    width:85,
-                    height:25,
-                    // marginTop:2,
-                    marginLeft:5,
+                        flexDirection: "row",
+                        padding: 7,
+                        justifyContent: "space-between",
+                        borderBottomWidth: 1,
+                        borderBottomColor: "#C4C4C4",
+                        paddingVertical: 7,
                       }}
                     >
-                      <Text
-                        style={{
-                          color: "#fff",
-                      textAlign: "center",
-                      fontWeight:'400',
-                      fontSize:10,
-                      paddingHorizontal:2,
-                      lineHeight:15,
-                        }}
-                      >
-                        Transliteration
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{ width: wp("60%") }}>
-                    <Text style={{textAlign:'center', fontSize:10,lineHeight:15,fontWeight:'400'}}>
-                      Alhamdulillahilladzi ahyana ba’dama amatana wa ilaihin
-                      nushur
-                    </Text>
-                  </View>
-                </View>
-                {/* ................. */}
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 5,
-                    justifyContent: "space-between",
-                    marginTop: hp("4%"),
-                    // backgroundColor:'red',
-                    marginTop:15,
-                    paddingTop:10,
-                    paddingBottom:10,
-                    borderTopWidth:1,
-                    borderTopColor:'#C4C4C4'
-                  }}
-                >
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity
-                     
-                    >
-                      <View
-                        style={{
-                          marginTop:3,
-                          padding: 5,
-                        }}
-                      >
-                        <Entypo name="controller-play" size={20} />
+                      <View style={{ flexDirection: "row" }}>
+                        <TouchableOpacity>
+                          <View
+                            style={{
+                              marginTop: 3,
+                              padding: 5,
+                            }}
+                          >
+                            <Entypo name="controller-play" size={20} />
+                          </View>
+                        </TouchableOpacity>
+                        <View style={{ marginTop: 8 }}>
+                          <Text
+                            style={{
+                              fontSize: 10,
+                              fontWeight: "400",
+                              padding: 3,
+                              paddingLeft: 14,
+                              borderLeftWidth: 2,
+                              borderLeftColor: "#FFD27B",
+                            }}
+                          >
+                            Arabic
+                          </Text>
+                        </View>
                       </View>
-                    </TouchableOpacity>
-                    <View style={{marginTop:8}}>
-                      <Text
-                        style={{
-                          fontSize:10,
-                          fontWeight:'400',
-                          padding: 3,
-                       paddingLeft:14,
-                            borderLeftWidth: 2,
-                            borderLeftColor: "#FFD27B",
-                       
-                        }}
-                      >
-                       urdu
-                      </Text>
+                      <View>
+                        <Text
+                          style={{
+                            marginTop: hp("1%"),
+                            color: "#800000",
+                            fontSize: 14,
+                            lineHeight: 19,
+                            fontWeight: "400",
+                          }}
+                        >
+                          {item.arabic}
+                        </Text>
+                      </View>
+                    </View>
+                    {/* End Aracbic */}
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        padding: 5,
+                        justifyContent: "space-between",
+                        // backgroundColor:'red',
+                        paddingBottom: 10,
+                        // backgroundColor:'green',
+                        marginTop: 15,
+                      }}
+                    >
+                      <View style={{ flexDirection: "row" }}>
+                        <TouchableOpacity
+                          style={{
+                            backgroundColor: "#A044FF",
+                            marginRight: hp("1%"),
+                            justifyContent: "center",
+                            width: 85,
+                            height: 25,
+                            // marginTop:2,
+                            marginLeft: 5,
+                          }}
+                        >
+                          <Text
+                            style={{
+                              color: "#fff",
+                              textAlign: "center",
+                              fontWeight: "400",
+                              fontSize: 10,
+                              paddingHorizontal: 2,
+                              lineHeight: 15,
+                            }}
+                          >
+                            Transliteration
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
+                      <View style={{ width: wp("60%") }}>
+                        <Text
+                          style={{
+                            textAlign: "center",
+                            fontSize: 10,
+                            lineHeight: 15,
+                            fontWeight: "400",
+                          }}
+                        >
+                          {item.eng}
+                        </Text>
+                      </View>
+                    </View>
+                    {/* ................. */}
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        padding: 5,
+                        justifyContent: "space-between",
+                        marginTop: hp("4%"),
+                        // backgroundColor:'red',
+                        marginTop: 15,
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        borderTopWidth: 1,
+                        borderTopColor: "#C4C4C4",
+                      }}
+                    >
+                      <View style={{ flexDirection: "row" }}>
+                        <TouchableOpacity>
+                          <View
+                            style={{
+                              marginTop: 3,
+                              padding: 5,
+                            }}
+                          >
+                            <Entypo name="controller-play" size={20} />
+                          </View>
+                        </TouchableOpacity>
+                        <View style={{ marginTop: 8 }}>
+                          <Text
+                            style={{
+                              fontSize: 10,
+                              fontWeight: "400",
+                              padding: 3,
+                              paddingLeft: 14,
+                              borderLeftWidth: 2,
+                              borderLeftColor: "#FFD27B",
+                            }}
+                          >
+                            urdu
+                          </Text>
+                        </View>
+                      </View>
+                      <View style={{ width: wp("60%"), marginTop: 7 }}>
+                        <Text
+                          style={{
+                            textAlign: "center",
+                            fontSize: 12,
+                            lineHeight: 15,
+                            fontWeight: "400",
+                          }}
+                        >
+                          {item.urdu}
+                        </Text>
+                      </View>
                     </View>
                   </View>
-                  <View style={{ width: wp("60%") ,marginTop:7}}>
-                    <Text style={{textAlign:'center',fontSize:12,lineHeight:15,fontWeight:'400'}}>
-                      شکر ہے اللہ کا جس نے ہمیں موت کے بعد زندہ کیا اور اسی کی
-                      طرف جانا ہے.
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              {/* ......................................................................................................... */}
-             
+                )}
+              />
 
               {/* ................End Card...................................... */}
             </ImageBackground>
@@ -625,9 +452,9 @@ const styles = StyleSheet.create({
 
     // backgroundColor:'#fff',
     // fontSize:1
-    fontSize:14,
-    fontWeight:'400',
-    lineHeight:21,
+    fontSize: 14,
+    fontWeight: "400",
+    lineHeight: 21,
     marginTop: hp("2%"),
   },
   activeButton: {
@@ -637,9 +464,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#A044FF",
     paddingBottom: hp("1%"),
-    fontSize:14,
-    fontWeight:'400',
-    lineHeight:21,
+    fontSize: 14,
+    fontWeight: "400",
+    lineHeight: 21,
     marginTop: hp("2%"),
   },
 
