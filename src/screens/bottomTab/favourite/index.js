@@ -149,7 +149,7 @@ const Favourite = () => {
               // marginRight: wp("20%"),
               // marginVertical: hp("11%"),
               marginLeft: hp("2.4%"),
-              width: hp("49.5%"),
+              // width: hp("49.5%"),
               marginTop: hp("10%"),
               backgroundColor: "#ffff",
               position: "absolute",
@@ -167,8 +167,10 @@ const Favourite = () => {
                 justifyContent: "space-between",
                 borderBottomWidth: 1,
                 borderBottomColor: "#C4C4C4",
+
                 paddingVertical:10,
-                // backgroundColor:'orange'
+                // backgroundColor:'orange',
+                
               }}
             >
               <View style={{ flexDirection: "row" }}>
@@ -362,7 +364,7 @@ const Favourite = () => {
               // marginRight: wp("20%"),
               // marginVertical: hp("11%"),
               marginLeft: hp("2.4%"),
-              width: hp("49.5%"),
+              // width: hp("49.5%"),
               marginTop: hp("10%"),
               backgroundColor: "#ffff",
               position: "absolute",

@@ -38,6 +38,13 @@ const allDuaData = [
   },
   {
     id: 2,
+    arabic:"اَلْحَمْدُلِلّٰہِ الَّذِیْ اَحْیَانَا بَعْدَ مَااَمَاتَنَا وَاِلَیْہِ النُّشُوْرُ",
+    eng: "Alhamdulillahilladzi ahyana ba’dama amatana wa ilaihinnushur",
+    urdu: "شکر ہے اللہ کا جس نے ہمیں موت کے بعد زندہ کیا اور اسی کی  طرف جانا ہے.",
+  },
+
+  {
+    id: 3,
     arabic:
       "اَلْحَمْدُلِلّٰہِ الَّذِیْ اَحْیَانَا بَعْدَ مَااَمَاتَنَا وَاِلَیْہِ النُّشُوْرُ",
     eng: "Alhamdulillahilladzi ahyana ba’dama amatana wa ilaihinnushur",
@@ -151,9 +158,10 @@ const WhenWakeUp = ({ navigation }) => {
           <>
             <ImageBackground
               source={require("../../../assets/little-kids/dreamingUp.png")}
-              style={{ height: hp("70%") }}
+              style={{ height: hp("62%") }}
             >
               <FlatList
+              style={{height:hp('20%')}}
                 data={allDuaData}
                 renderItem={({ item }) => (
                   <View

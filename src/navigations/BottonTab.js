@@ -98,6 +98,8 @@ const BottomTabNavigator = ({ navigation }) => {
           marginHorizontal: hp("2%"),
           marginTop: hp("5%"),
           width: wp("90%"),
+          // paddingHorizontal
+          justifyContent:'space-between'
         }}
       >
         <TouchableOpacity onPress={handleBrightness}>
@@ -107,7 +109,7 @@ const BottomTabNavigator = ({ navigation }) => {
         <View
           style={{
             // backgroundColor: "green",
-            marginLeft: hp("32%"),
+            // marginLeft: hp("32%"),
             flexDirection: "row",
           }}
         >
@@ -182,12 +184,14 @@ const BottomTabNavigator = ({ navigation }) => {
           marginHorizontal: hp("2%"),
           marginTop: hp("5%"),
           width: wp("90%"),
+          justifyContent:'flex-end'
         }}
+
       >
         <View
           style={{
             // backgroundColor: "green",
-            marginLeft: hp("32%"),
+            // marginLeft: hp("32%"),
             flexDirection: "row",
           }}
         >
@@ -271,6 +275,7 @@ const BottomTabNavigator = ({ navigation }) => {
           marginHorizontal: hp("2%"),
           marginTop: hp("5%"),
           width: wp("90%"),
+          justifyContent:'space-between'
         }}
       >
         <Text style={{ fontSize: 18, fontWeight: "500", color: "#fff" }}>
@@ -280,7 +285,7 @@ const BottomTabNavigator = ({ navigation }) => {
         <View
           style={{
             // backgroundColor: "green",
-            marginLeft: hp("29%"),
+            // marginLeft: hp("29%"),
             flexDirection: "row",
             marginTop: 1,
           }}

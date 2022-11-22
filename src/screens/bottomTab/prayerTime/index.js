@@ -64,6 +64,8 @@ const Header = () => {
         style={{
           flexDirection: "row",
           alignContent: "center",
+          // backgroundColor:'red',
+          marginHorizontal:wp('2%')
         }}
       >
         <Text
@@ -72,7 +74,7 @@ const Header = () => {
             textAlign: "center",
             fontSize: hp("1.8%"),
             padding: hp("1.3%"),
-            marginLeft: hp("3%"),
+            // marginLeft: hp("3%"),
           }}
         >
           Time Zone :
@@ -82,7 +84,7 @@ const Header = () => {
             color: "#fff",
             textAlign: "center",
             fontSize: hp("1.8%"),
-            padding: hp("1.3%"),
+            paddingVertical: hp("1.3%"),
           }}
         >
           Multan Islamic University Karachi Pakistan
