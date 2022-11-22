@@ -83,7 +83,7 @@ const Settings = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [checked, setChecked] = useState("");
   const [selectFont, setSelectFont] = useState(false);
-const [colorModel,setColorModel]=useState(false)
+  const [colorModel, setColorModel] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
   const [genderValue, setGenderValue] = useState(null);
   const [gender, setGender] = useState([
@@ -210,6 +210,8 @@ const [colorModel,setColorModel]=useState(false)
               </View>
 
               <Text style={styles.text}>English UK </Text>
+
+              
               {/* <Text style={{marginLeft:hp('15%')}}>Muhammad</Text> */}
             </View>
           </TouchableOpacity>
@@ -233,88 +235,160 @@ const [colorModel,setColorModel]=useState(false)
           <View style={{ paddingVertical: wp("5") }}>
             <Text style={styles.title}>Features</Text>
           </View>
-     
-            <View style={{ flexDirection: "row", }}>
-              <View
-                style={{
-                  paddingRight: wp("5%"),
-                  paddingLeft: wp("2%"),
-                  paddingBottom: hp("2%"),
-                  marginTop:hp('1%')
-                }}
-              >
-                <FontAwesome5 name="paint-roller" size={20} color="#A044FF" />
-              </View>
-              <Text style={[styles.text,{marginTop:hp('1%')}]}>Color Scheme </Text>
-              <Modal
-        animationType="slide"
-        transparent={true}
-        visible={colorModel}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setColorModel(!colorModel);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={[styles.modalView,{padding:20}]}>
-           <View style={{
-            flexDirection:'row',
-            justifyContent:'space-evenly'
-           }}>
-            <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
-              <View style={{
-                width:wp('10%'),
-                backgroundColor:'red',
-                height:hp('5%'),
-                borderRadius:5
-              }}> 
 
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
-              <View style={{
-                width:wp('10%'),
-                backgroundColor:'red',
-                height:hp('5%'),
-                borderRadius:5,
-                marginLeft:wp('5%')
-              }}> 
-
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
-              <View style={{
-                width:wp('10%'),
-                backgroundColor:'red',
-                height:hp('5%'),
-                borderRadius:5,
-                marginLeft:wp('5%')
-              }}> 
-
-              </View>
-            </TouchableOpacity>
-           </View>
-            
-          </View>
-        </View>
-      </Modal>
-              <View style={styles.arrow}>
-                <TouchableOpacity onPress={()=>setColorModel(!colorModel)}>
-
-                <Image
-                  source={require("../../../../assets/color(2).png")}
-                  style={{
-                    height: 27,
-                    width: 29,
-                    alignSelf: "center",
-                    alignSelf: "flex-end",
-                  }}
-                  />
-                  </TouchableOpacity>
-              </View>
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                paddingRight: wp("5%"),
+                paddingLeft: wp("2%"),
+                paddingBottom: hp("2%"),
+                marginTop: hp("1%"),
+              }}
+            >
+              <FontAwesome5 name="paint-roller" size={20} color="#A044FF" />
             </View>
-       
+            <Text style={[styles.text, { marginTop: hp("1%") }]}>
+              Color Scheme{" "}
+            </Text>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={colorModel}
+              onRequestClose={() => {
+                Alert.alert("Modal has been closed.");
+                setColorModel(!colorModel);
+              }}
+            >
+              <View style={styles.centeredView}>
+                <View style={[styles.modalView, { padding: 20 }]}>
+                  <Text
+                    style={{
+                      alignSelf: "flex-start",
+                      marginTop: -15,
+                      marginBottom: 15,
+                    }}
+                  >
+                    Choose App Color
+                  </Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-evenly",
+                    }}
+                  >
+                    <TouchableOpacity
+                      onPress={() => setColorModel(!colorModel)}
+                    >
+                      <View
+                        style={{
+                          width: wp("10%"),
+                          backgroundColor: "#A044FF",
+                          height: hp("5%"),
+                          borderRadius: 5,
+                        }}
+                      ></View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => setColorModel(!colorModel)}
+                    >
+                      <View
+                        style={{
+                          width: wp("10%"),
+                          backgroundColor: "#5AC582",
+                          height: hp("5%"),
+                          borderRadius: 5,
+                          marginLeft: wp("5%"),
+                        }}
+                      ></View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => setColorModel(!colorModel)}
+                    >
+                      <View
+                        style={{
+                          width: wp("10%"),
+                          backgroundColor: "#F5AF19",
+                          height: hp("5%"),
+                          borderRadius: 5,
+                          marginLeft: wp("5%"),
+                        }}
+                      ></View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => setColorModel(!colorModel)}
+                    >
+                      <View
+                        style={{
+                          width: wp("10%"),
+                          backgroundColor: "#44C2F2",
+                          height: hp("5%"),
+                          borderRadius: 5,
+                          marginLeft: wp("5%"),
+                        }}
+                      ></View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={() => setColorModel(!colorModel)}
+                    >
+                      <View
+                        style={{
+                          width: wp("10%"),
+                          backgroundColor: "#89216B",
+                          height: hp("5%"),
+                          borderRadius: 5,
+                          marginLeft: wp("5%"),
+                        }}
+                      ></View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => setColorModel(!colorModel)}
+                    >
+                      <View
+                        style={{
+                          width: wp("10%"),
+                          backgroundColor: "#00B4DB",
+                          height: hp("5%"),
+                          borderRadius: 5,
+                          marginLeft: wp("5%"),
+                        }}
+                      ></View>
+                    </TouchableOpacity>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignSelf: "flex-end",
+                      marginTop: 15,
+                    }}
+                  >
+                    <TouchableOpacity style={{ marginRight: 15 }}>
+                      <Text style={{ color: "#AFAFB0" }}>Cancel</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ marginRight: 15 }}>
+                      <Text style={{ color: "#AFAFB0" }}>Default</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                      <Text style={{ color: "#A044FF" }}>Apply</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            </Modal>
+            <View style={styles.arrow}>
+              <TouchableOpacity onPress={() => setColorModel(!colorModel)}>
+                <View
+                  style={{
+                    width: wp("10%"),
+                    backgroundColor: "#A044FF",
+                    height: hp("5%"),
+                    borderRadius: 5,
+                    marginLeft: wp("5%"),
+                  }}
+                ></View>
+              </TouchableOpacity>
+            </View>
+          </View>
 
           {/* .......................................................... */}
 
@@ -467,7 +541,7 @@ const [colorModel,setColorModel]=useState(false)
               // backgroundColor: "#fff",
               justifyContent: "space-between",
               // backgroundColor:'red',
-              marginTop:hp('1%'),
+              marginTop: hp("1%"),
             }}
           >
             <View
@@ -724,7 +798,7 @@ const [colorModel,setColorModel]=useState(false)
 
           {/* ................................................................................................................... */}
 
-          <TouchableOpacity onPress={() => navigation.navigate('Suggestions')}>
+          <TouchableOpacity onPress={() => navigation.navigate("Suggestions")}>
             <View style={{ flexDirection: "row", paddingTop: hp("3%") }}>
               <View style={{ paddingRight: wp("5%"), paddingLeft: wp("2%") }}>
                 <MaterialCommunityIcons

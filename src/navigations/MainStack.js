@@ -457,7 +457,7 @@ const MainStack = ({navigation}) => {
         <Stack.Screen
           name="WhenWakeUp"
           options={(props) => {
-            console.log('this my props when wake up =============',props);
+           
             return {
               headerStyle: {
                 backgroundColor:
